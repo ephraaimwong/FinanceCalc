@@ -54,6 +54,9 @@ nav a {
     margin-bottom: 2rem;
     font-size: 1.5rem;
     line-height: 1.5;
+} 
+.column-left a{
+    text-decoration: none;
 }
 button{
     padding: 1rem 3rem;
@@ -63,6 +66,8 @@ button{
     background: black;
     cursor: pointer;
     border-radius: 50px;
+    display: flex;
+    width: 20rem;
 }
 button:hover{
     background: white;
