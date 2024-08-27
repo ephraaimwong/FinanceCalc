@@ -25,6 +25,10 @@ nav a {
     color: black;
     padding: 0 1.5rem;
 }
+nav a:hover{
+    color: purple;
+    background: white;
+}
 
 .hero{
     background: blue;
@@ -68,7 +72,9 @@ button{
     border-radius: 50px;
     display: flex;
     width: 20rem;
+    margin: 5px;/* spacing between buttons */
 }
+    
 button:hover{
     background: white;
     color: black;
