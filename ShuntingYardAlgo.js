@@ -263,6 +263,7 @@ function eval(tree) {
 }
 
 document.querySelector('#btn').addEventListener('click', (e) => {
+    //e.preventDefault(); 
     let eqn = document.querySelector('#input').value;
     let rpn = RPN(eqn);
     var val = 'invalid input';
@@ -274,7 +275,6 @@ document.querySelector('#btn').addEventListener('click', (e) => {
     console.log(tree);
     console.log(val);
     }
-
-    document.querySelector('#output').innerHTML = val;
-    
+    document.querySelector('#display').value = val;   
 });
+
