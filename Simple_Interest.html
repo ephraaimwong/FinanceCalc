@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>The Investment Calculator</title> 
+	<link rel="stylesheet" href="style.css"> 
+    <script src="simpleInterest.js"></script>
+</head> 
+
+<body> 
+	<div class="container"> 
+		<h1>Simple Interest Calculator</h1> 
+		<div class="input-container"> 
+			<label for="initial-investment"> 
+				Principal Amount ($): 
+			</label> 
+			<input type="number" id="principal" placeholder="Enter Principal Amount"> 
+		</div> 
+		<div class="input-container"> 
+			<label for="interest-rate"> 
+				Annual Interest Rate (%): 
+			</label> 
+			<input type="number" id="interest_rate" placeholder="Enter annual interest rate"> 
+		</div> 
+		<div class="input-container"> 
+			<label for="investment-term"> 
+				Number of Years: 
+			</label> 
+			<input type="number" id="investment-term" placeholder="Enter number of years"> 
+		</div> 
+		<button id="calculate-button"> 
+			Calculate 
+		</button> 
+		<div id="result" class="result-container"> 
+		</div> 
+
+		<!-- Progress bar container to visually represent investment growth -->
+		<div class="progress-bar-container">
+			<div id="progress-bar" class="progress-bar"></div>
+		</div>
+
+	</div> 
+</body> 
+
+</html>
