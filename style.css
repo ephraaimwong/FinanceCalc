@@ -90,3 +90,155 @@ button:hover{
     width: 100%;
     height: auto;
 }
+
+
+body { 
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+	background-color: #f4f4f4; 
+	margin: 0; 
+	padding: 0; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	height: 100vh; 
+} 
+
+.container { 
+	background-color: #fff; 
+	border-radius: 1.25rem; 
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+	width: 40.625rem; 
+	height: 26.25rem;
+	display: flex; 
+	flex-direction: column; 
+	text-align: center; 
+} 
+
+h1 { 
+	color: #007bff; 
+	margin-bottom: 20px; 
+} 
+
+label { 
+	display: block; 
+	color: #333; 
+	font-weight: bold; 
+} 
+
+input[type="number"] { 
+	width: 17.5rem;
+	height: 2.188rem;
+	padding: 12px; 
+	border: 1px solid #ccc; 
+	border-radius: 0.75rem; 
+	box-sizing: border-box; 
+	box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.25); 
+} 
+
+.radio-group input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 1.3rem;
+	height: 1.3rem;
+	border: 0.09rem solid #949393;
+	border-radius: 50%;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	transition: border-color 0.3s;
+	/* Add inner shadow */
+    /* Add inner shadow */
+    box-shadow: inset 0 0 3px rgba(148, 147, 147, 0.5); 
+}
+
+/* Custom radio button appearance */
+.radio-group input[type="radio"]:before {
+	content: '';
+	width: 0.7rem; /* Inner circle size */
+	height: 0.7rem;
+	border-radius: 50%;
+	background-color: transparent;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	align-items: center;
+	transform: translate(-50%, -50%);
+	transition: background-color 0.3s;
+}
+
+/* Checked state */
+.radio-group input[type="radio"]:checked {
+	border-color: #4CAF50; /* Outer circle color */
+}
+
+.radio-group input[type="radio"]:checked:before {
+	background-color: #4CAF50; /* Inner circle color when pressed */
+}
+
+
+.radio-group {
+	display: flex;
+	gap: 1rem; /* Adjust spacing between radio-button groups */
+	accent-color: #60C080;
+	align-items: center; /* Aligns the labels vertically in line with the radio buttons */
+}
+
+
+button { 
+	background-color: #43A162; 
+	color: #fff; 
+	border: none; 
+	cursor: pointer; 
+	border-radius: 0.938rem; 
+	width: 10rem; 
+	text-align: center;
+	font-size: 1.25rem;
+	height: 2.313rem;
+} 
+
+button:hover { 
+	background-color: #259E4D; 
+} 
+
+.result-container { 
+	text-align: center; 
+	margin-top: 20px; 
+	font-size: 18px; 
+	color: #333; 
+}
+
+
+/* Container for the progress bar */
+.progress-bar-container {
+    width: 100%; /* Full width of the container */
+    background-color: #e0e0e0; /* Light grey background for the bar */
+    border-radius: 5px; /* Rounded corners for the bar */
+    margin-top: 20px; /* Space above the bar */
+    height: 30px; /* Height of the bar */
+    overflow: hidden; /* Ensures the progress bar doesn't overflow */
+    display: none; /* Initially hidden */
+}
+
+/* Actual progress bar */
+.progress-bar {
+    height: 100%; /* Full height of the container */
+    background-color: #007bff; /* Blue color for the progress */
+    width: 0; /* Initial width of the progress bar (0%) */
+    transition: width 0.5s ease-in-out; /* Smooth transition when the width changes */
+}
+
+
+/* Removing spinner on input box with type number */
+
+/* Hide the spinner (up/down arrows) on number input for Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide the spinner (up/down arrows) on number input for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
