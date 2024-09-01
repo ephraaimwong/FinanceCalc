@@ -261,20 +261,53 @@ function eval(tree) {
         }
     }
 }
+function toggleSign() {
+    let input = document.getElementById('input');
+    let currentValue = input.value;
+    let cursorPos = input.selectionStart; // Get cursor position
+    let beforeCursor = currentValue.substring(0, cursorPos);
+    let afterCursor = currentValue.substring(cursorPos);
+    
+    // Regular expression to find the number at the cursor position
+    let match = /(-?\d+(\.\d*)?)(?!\d|\.)/.exec(beforeCursor.split(/[\+\-\*\/\(\)\s]/).pop());
+    
+    if (match) {
+        let number = match[0];
+        let signToggled = number.startsWith('-') ? number.substring(1) : '-' + number;
+        let updatedBeforeCursor = beforeCursor.slice(0, beforeCursor.lastIndexOf(number)) + signToggled;
+        
+        // Update the input value with the sign toggled number
+        input.value = updatedBeforeCursor + afterCursor;
+        input.setSelectionRange(cursorPos, cursorPos); // Restore cursor position
+    }
+}
 
-document.querySelector('#btn').addEventListener('click', (e) => {
-    //e.preventDefault(); 
+function evaluateExpression(){
+    // let reset = '';
+    document.querySelector('#display').value = ''; //reset result display for new input
     let eqn = document.querySelector('#input').value;
     let rpn = RPN(eqn);
     var val = 'invalid input';
-
-    if(rpn){
-    let tree = parse(rpn);
-    val = eval(tree);
-    console.log(rpn);
-    console.log(tree);
-    console.log(val);
+    if (rpn) {
+        let tree = parse(rpn);
+        val = eval(tree);
     }
     document.querySelector('#display').value = val;   
-});
+}
+
+// document.querySelector('#btn').addEventListener('click', (e) => {
+//     //e.preventDefault(); 
+//     let eqn = document.querySelector('#input').value;
+//     let rpn = RPN(eqn);
+//     var val = 'invalid input';
+
+//     if(rpn){
+//     let tree = parse(rpn);
+//     val = eval(tree);
+//     console.log(rpn);
+//     console.log(tree);
+//     console.log(val);
+//     }
+//     document.querySelector('#display').value = val;   
+// });
 
