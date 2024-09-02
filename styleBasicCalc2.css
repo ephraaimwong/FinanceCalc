@@ -15,10 +15,18 @@ nav {
 }
 .logo{
     color: aliceblue;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     font-style: italic;
     padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logo img{
+    height:80px;
+    margin-right: 5px;
 }
 
 nav a {
