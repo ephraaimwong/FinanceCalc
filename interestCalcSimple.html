@@ -1,25 +1,25 @@
-<!--change to compound, add month, year and daily, and add schedule-->
-<!--  -->
+<!--reverted back to simple interest calculator-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Interest Calculator</title>
+  <title>Simple Interest Calculator</title>
   <link rel="stylesheet" href="styleInterestCalc.css">
   <link rel="icon" type="image/ico" href="./Img/redmoneybowl-32.ico">
 </head>
 <body>
   <nav>
-    <div class ="logo"><a href="index.html">The Money Bowl</a></div>
-    <div class="nav-items">
-        <a href="index.html">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contact</a>
-    </div>
+      <div class ="logo"><a href="index.html">The Money Bowl</a></div>
+      <div class="nav-items">
+          <a href="index.html">Home</a>
+          <a href="/">About</a>
+          <a href="/">Contact</a>
+      </div>
+
   </nav>
   <div class="calculator-container">
-    <h1>Financial Interest Calculator</h1>
+    <h1>Simple Interest Calculator</h1>
     <form id="interestForm">
       <label for="principal">Principal Amount ($):</label>
       <input type="number" id="principal" placeholder="Enter principal amount" required>
@@ -28,7 +28,7 @@
       <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
 
       <label for="time">Time (Years):</label>
-      <input type="number" id="time" placeholder="Enter time in years" required> <!--add option for year or months in breakdown-->
+      <input type="number" id="time" placeholder="Enter time in years" required>
 
       <button type="button" onclick="calculateInterest()">Calculate Interest</button>
     </form>
@@ -36,19 +36,6 @@
     <div id="result"></div>
   </div>
 
-  <script>
-    function calculateInterest() {
-      const principal = parseFloat(document.getElementById('principal').value);
-      const rate = parseFloat(document.getElementById('rate').value);
-      const time = parseFloat(document.getElementById('time').value);
-
-      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
-        const interest = (principal * rate * time) / 100;
-        document.getElementById('result').innerHTML = `The interest is $${interest.toFixed(2)}.`;
-      } else {
-        document.getElementById('result').innerHTML = 'Please enter valid inputs.';
-      }
-    }
-  </script>
+  <script src="simpleInterest.js"></script>
 </body>
 </html>
