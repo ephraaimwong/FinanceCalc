@@ -11,3 +11,5 @@ Functions:
 6) Investment Calculations
 7) Retirement Fund (25*yearly expenses, 4% rule)
 8) Budgeting Tools
+
+7SEP24 Summary of Changes: Added branch for compound interest calculator with associated files for the calculator (.html,.css, and .js) -Jarrett C.
