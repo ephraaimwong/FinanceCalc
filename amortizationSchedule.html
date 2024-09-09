@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Money Bowl</title>
+    <link rel="stylesheet" href="amortizationStyle.css">
+    <link rel="icon" href="./Img/redmoneybowl-32.ico" type="image/ico">
 </head>
+
 <body>
-    
+    <nav>
+        <div class ="logo">
+            <img src="./Img/redmoneybowl" alt="project logo">
+            <a href="index.html">The Money Bowl</a></div>
+        <div class="nav-items">
+            <a href="index.html">Home</a>
+            <a href="/">About</a>
+            <a href="/">Contact</a>
+        </div>
+    </nav>
+    <section id="mortgage-calculator">
+        <div class="container">
+            <div id="mortgage-calculator-headline" class="Headline w- full">
+                <h1>
+        
+                    Mortgage Calculator
+                    
+                </h1>
+                <div class="calculator">
+                    <div id="app" class="m-calculator">
+                        <div class="grid">
+                            <div class="grid-left">
+                                <div class="col-span-12">
+                                    <label for="homePrice" class="formLabel-left">Principal Amount</label>
+                                    <div data-format="$"><input type= "text" id="homePrice" class="formInput" placeholder="Enter Principal Amount" required></div>
+                                </div>
+                                <div class="col-span-8">
+                                    <label for="downPayment" class="formLabel-left">Down Payment</label>
+                                    <div>
+                                        <input type="text" id="downPayment" class="formInput" placeholder="$100,000" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
 </body>
 </html>
