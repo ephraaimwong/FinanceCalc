@@ -39,7 +39,7 @@ body {
   }
   
   .calculator-container {
-    max-width: 100%;
+    max-width: 50%;
     background-color: #154c8a;
     padding: 20px;
     margin: 0 auto;
