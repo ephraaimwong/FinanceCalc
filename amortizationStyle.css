@@ -38,3 +38,66 @@ nav a {
 nav a:hover{
     color: purple;
 }
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    padding-left: 6rem;
+    padding-top: 10rem;
+}
+#headline{
+    grid-column: 1/4; /*start 1, end 4*/
+    grid-row: 1/3; /*start 1, end 3*/
+    justify-self: center;
+}
+h1{
+    font-size: 40px;
+}
+.calculator{
+    grid-column: 1/2;
+    grid-row: 3/5;
+    
+}
+label.formLabel-left{
+    font-size: 32px;
+}
+
+.formInput{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+.formInput::placeholder{
+    font-size: 16px;
+}
+
+.splitBox{
+    display: inline-flex;
+}
+.downPayment-amount{
+    width: 44%;
+}
+.downPayment-percent{
+    width: 20%;
+}
+#downPayment-amount.formInput{
+    width: 100%;
+    border-top-left-radius: 15px; /* Left side rounded */
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 0; /* Inner border straight */
+    border-bottom-right-radius: 0; /* Inner border straight */
+    border-right: none;
+}
+#downPayment-percent.formInput {
+    width: 100%;
+    border-top-right-radius: 15px; /* Right side rounded */
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 0; /* Inner border straight */
+    border-bottom-left-radius: 0; /* Inner border straight */
+}
+
+.splitBox input:focus {
+    outline: none;
+}

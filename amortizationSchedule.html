@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
 
 <body>
     <nav>
-        <div class ="logo">
+        <div class="logo">
             <img src="./Img/redmoneybowl" alt="project logo">
-            <a href="index.html">The Money Bowl</a></div>
+            <a href="index.html">The Money Bowl</a>
+        </div>
         <div class="nav-items">
             <a href="index.html">Home</a>
             <a href="/">About</a>
@@ -20,32 +22,35 @@
         </div>
     </nav>
     <section id="mortgage-calculator">
-        <div class="container">
-            <div id="mortgage-calculator-headline" class="Headline w- full">
+        <div class="container"> <!--This is where grid starts-->
+            <div id="headline">
                 <h1>
-        
+
                     Mortgage Calculator
-                    
+
                 </h1>
-                <div class="calculator">
-                    <div id="app" class="m-calculator">
-                        <div class="grid">
-                            <div class="grid-left">
-                                <div class="col-span-12">
-                                    <label for="homePrice" class="formLabel-left">Principal Amount</label>
-                                    <div data-format="$"><input type= "text" id="homePrice" class="formInput" placeholder="Enter Principal Amount" required></div>
-                                </div>
-                                <div class="col-span-8">
-                                    <label for="downPayment" class="formLabel-left">Down Payment</label>
-                                    <div>
-                                        <input type="text" id="downPayment" class="formInput" placeholder="$100,000" required>
-                                    </div>
-                                </div>
-                            </div>
+            </div>
+            <div class="calculator">
+                <div id="app" class="m-calculator">
+                    <div class="col-span-12">
+                        <label for="homePrice" class="formLabel-left">Principal Amount</label>
+                        <div data-format="$"><input type="text" id="homePrice" class="formInput"
+                                placeholder="Enter Principal Amount" required></div>
+                    </div>
+                    <label for="downPayment" class="formLabel-left">Down Payment</label>
+                    <div class="splitBox">
+                        <div class="downPayment-amount">
+                            <input type="text" id="downPayment-amount" class="formInput" placeholder="$100,000" required>
+                        </div>
+                        <div class="downPayment-percent" data-format="%">
+                            <input type="text" id="downPayment-percent" class="formInput" required>
+                            
                         </div>
                     </div>
+
                 </div>
             </div>
+            <div>next box</div>
 
         </div>
 
@@ -53,4 +58,5 @@
 
 
 </body>
+
 </html>
