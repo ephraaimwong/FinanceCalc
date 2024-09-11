@@ -54,18 +54,18 @@ body {
   } */
   .container{
     width: 100%;
-    min-height: 100vh;
+    min-height:100vh;
     background: #F8F6F0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: row;
     overflow-y: auto;
   }
   .calculator{
     background: #317dd4;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 25px;
   }
   .table{
     background: #317dd4;
@@ -98,7 +98,6 @@ body {
     width: 100%;
     padding: 10px;
     background-color: #154c8a;
-    ;
     color: white;
     border: none;
     border-radius: 4px;
@@ -109,9 +108,21 @@ body {
   button:hover {
     background-color: #1959ef;
   }
-  
+
+  .scheduleTable{
+    /*div to hold results and schedule for cohesive styling - EPHRAIM*/
+    display: none;
+    /* hide left table, display changes to 'block' during scheduleTable generation in .js - EPHRAIM */ 
+    width: 30%;
+    border: 2px solid green;
+    border-radius: 25px;
+    min-height: 57vh;
+    background-color: #317dd4;
+
+  }
   #result {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 18px;
     color: #333;
@@ -120,24 +131,25 @@ body {
   #schedule {
     /* margin-top: 20px; */
     text-align: center; 
-    max-height: 400px; /* Set a fixed height for the table container */
+    max-height: 45vh; /* Set a fixed height for the table container */
     overflow-y: auto;  /* Enable vertical scrolling */
-    width: 15%;
+    width: 100%;
     /* align-items: center; */
     justify-content: center;
     /* margin: 0 auto; */
+    border: 2px solid #000;
   }
   
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border-color: #000;
   }
   
   table, th, td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
   }
   /* th.period,
@@ -156,4 +168,7 @@ body {
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+  tr{
+    /* styling odd rows -EPHRAIM */
+    background-color: #f6f7ee;
+  }
