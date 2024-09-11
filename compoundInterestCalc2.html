@@ -13,9 +13,12 @@
         <div class="nav-items">
             <a href="index.html">Home</a>
             <a href="/">About</a>
-            <a href="/">Contact</a>  
+            <a href="/">Contact</a> 
+          </div> 
     </nav>
-  <div class="calculator-container">
+    
+  <div class="container">
+    <div class="calculator">
     <h1>Compound Interest Calculator</h1>
     <form id="compoundInterestForm">
       <label for="principal">Principal Amount ($):</label>
@@ -39,9 +42,12 @@
 
       <button type="button" onclick="calculateCompoundInterest()">Calculate Interest</button>
     </form>
-
-    <div id="result"></div>
-    <div id="schedule"></div>
+    </div>
+     <!--Added new div for better styling - EPHRAIM-->
+      <div id="result"></div>
+      <div id="schedule"></div>
+      <!-- would be nice if the period column was  -->
+    
   </div>
 
      <script src="compoundInterestCalc2.js"></script>

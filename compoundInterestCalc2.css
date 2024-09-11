@@ -40,15 +40,39 @@ body {
     padding: 20px;
   }
   
-  .calculator-container {
-    max-width: 50%;
+  /* .calculator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
     background-color: #1959ef;
     padding: 20px;
-    margin: 0 auto;
+    margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    
+  } */
+  .container{
+    width: 100%;
+    min-height: 100vh;
+    background: #F8F6F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
   }
-  
+  .calculator{
+    background: #317dd4;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .table{
+    background: #317dd4;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
   h1 {
     text-align: center;
     color: black;
@@ -94,14 +118,21 @@ body {
   }
   
   #schedule {
-    margin-top: 20px;
-    text-align: center;
+    /* margin-top: 20px; */
+    text-align: center; 
+    max-height: 400px; /* Set a fixed height for the table container */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    width: 15%;
+    /* align-items: center; */
+    justify-content: center;
+    /* margin: 0 auto; */
   }
   
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border-color: #000;
   }
   
   table, th, td {
@@ -109,6 +140,14 @@ body {
     padding: 10px;
     text-align: center;
   }
+  /* th.period,
+  td.period{
+    width: 10%;
+  }
+  th.balance,
+  td.balance{
+    width: 90%;
+  } */
   
   th {
     background-color: #f4f4f9;
