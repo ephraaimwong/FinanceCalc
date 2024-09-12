@@ -32,25 +32,42 @@
             </div>
             <div class="calculator">
                 <div id="app" class="m-calculator">
-                    <div class="col-span-12">
-                        <label for="homePrice" class="formLabel-left">Principal Amount</label>
-                        <div data-format="$"><input type="text" id="homePrice" class="formInput"
+
+                    <label for="homePrice" class="formLabel-left">Principal Amount</label>
+                    <div class="regBox">
+                        <div data-format="$"><input type="text" id="regBox" class="formInput"
                                 placeholder="Enter Principal Amount" required></div>
                     </div>
                     <label for="downPayment" class="formLabel-left">Down Payment</label>
                     <div class="splitBox">
                         <div class="downPayment-amount">
-                            <input type="text" id="downPayment-amount" class="formInput" placeholder="$100,000" required>
+                            <input type="text" id="downPayment-amount" class="formInput" placeholder="$100,000"
+                                required>
                         </div>
                         <div class="downPayment-percent" data-format="%">
-                            <input type="text" id="downPayment-percent" class="formInput" required>
-                            
+                            <input type="text" id="downPayment-percent" class="formInput" placeholder=" 20%" required>
+
                         </div>
                     </div>
-
+                    <label for="term" class="formLabel-left">Loan Term</label>
+                    <div class="regBox">
+                        <select id="regBox" class="formInput" required>
+                            <option value="30">30 years</option>
+                            <option value="25">25 years</option>
+                            <option value="20">20 years</option>
+                            <option value="15">15 years</option>
+                            <option value="10">10 years</option>
+                            <option value="5">5 years</option>
+                        </select>
+                    </div>
+                    <label for="interest" class="formLabel-left">Interest Rate</label>
+                    <div class="regBox">
+                        <div data-format="%"><input type="text" id="regBox" class="formInput"
+                            placeholder="6.12345%" required>
+                    </div>
                 </div>
             </div>
-            <div>next box</div>
+            <div class="infoBox">next box</div>
 
         </div>
 

@@ -41,46 +41,65 @@ nav a:hover{
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 2fr ;
-    padding-left: 6rem;
-    padding-top: 10rem;
+    grid-template-columns: 25% 75% ;
+    padding-left: 10%;
+    padding-top: 6%;
+    border: 2px solid black
 }
 #headline{
     grid-column: 1/4; /*start 1, end 4*/
     grid-row: 1/3; /*start 1, end 3*/
     justify-self: center;
+    border: 2px solid green;
 }
 h1{
     font-size: 40px;
 }
+
+#app.m-calculator{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    border: 2px solid red;
+}
 .calculator{
     grid-column: 1/2;
     grid-row: 3/5;
-    
+    border: 3px solid salmon;
 }
 label.formLabel-left{
     font-size: 32px;
 }
-
+.regBox{
+    border: 2px solid purple;
+}
 .formInput{
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0px;
     box-sizing: border-box;
-    border-radius: 0.5rem;
+    border-radius: 15px;
+    background-color: #f0ead6;
+    font: 16px Arial, sans-serif;
 }
 .formInput::placeholder{
     font-size: 16px;
 }
-
+#regBox.formInput{
+    width: 75%;
+}
 .splitBox{
-    display: inline-flex;
+    display: flex;
+    width: 75%;
+    /* align-items: flex-start;
+    justify-content: flex-end; */
+    border: 2px solid yellow;
 }
 .downPayment-amount{
-    width: 44%;
+    width: 75%;
 }
 .downPayment-percent{
-    width: 20%;
+    width: 25%;
 }
 #downPayment-amount.formInput{
     width: 100%;
@@ -96,8 +115,13 @@ label.formLabel-left{
     border-bottom-right-radius: 15px;
     border-top-left-radius: 0; /* Inner border straight */
     border-bottom-left-radius: 0; /* Inner border straight */
+    padding-left: 15%;
 }
 
 .splitBox input:focus {
     outline: none;
+}
+
+.infoBox{
+    border: 5px solid greenyellow;
 }
