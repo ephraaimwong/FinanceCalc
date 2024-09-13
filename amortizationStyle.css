@@ -45,6 +45,7 @@ nav a:hover{
     padding-left: 10%;
     padding-top: 6%;
     border: 2px solid black
+    
 }
 #headline{
     grid-column: 1/4; /*start 1, end 4*/
@@ -72,10 +73,32 @@ label.formLabel-left{
 }
 .regBox{
     border: 2px solid purple;
+    padding-right: 15%;
+}
+.inputBoxIcon{
+    /* fix $, % icon in input bar */
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-color: violet;
+    padding-right: 15%;
+}
+.inputBoxIcon-dollar{
+    /* fix $ icon in input bar */
+    position: absolute;
+    left: 5%;
+    font-size: 16px;
+    z-index: 1;/* Ensure it's layered above input */
+}
+.inputBoxIcon-percent{
+    position: absolute;
+    right: 20%;
+    font-size: 16px;
+    z-index: 1;/* Ensure it's layered above input */
 }
 .formInput{
-    width: 50%;
-    padding: 12px 20px;
+    /* width: 50%; */
+    padding: 12px 30px;
     margin: 8px 0px;
     box-sizing: border-box;
     border-radius: 15px;
@@ -86,22 +109,17 @@ label.formLabel-left{
     font-size: 16px;
 }
 #regBox.formInput{
-    width: 75%;
+    width: 100%;
 }
-.splitBox{
-    display: flex;
-    width: 75%;
-    /* align-items: flex-start;
-    justify-content: flex-end; */
-    border: 2px solid yellow;
-}
+
 .downPayment-amount{
-    width: 75%;
+    flex: 3; /*75%*/
 }
 .downPayment-percent{
-    width: 25%;
+    flex: 2; /*25%*/
 }
 #downPayment-amount.formInput{
+    /* padding-left: 30px; */
     width: 100%;
     border-top-left-radius: 15px; /* Left side rounded */
     border-bottom-left-radius: 15px;
@@ -110,17 +128,24 @@ label.formLabel-left{
     border-right: none;
 }
 #downPayment-percent.formInput {
+    /* padding-right: 30px; */
     width: 100%;
     border-top-right-radius: 15px; /* Right side rounded */
     border-bottom-right-radius: 15px;
     border-top-left-radius: 0; /* Inner border straight */
     border-bottom-left-radius: 0; /* Inner border straight */
-    padding-left: 15%;
+
+}
+.evalButton{
+    border-radius: 50px;
+    width: 85%; /*match the input box size*/
+    display: flex;
+    border: none;
+    background: #154c8a;
+    color: #f0ead6;
+    font-size: 1.8rem;
 }
 
-.splitBox input:focus {
-    outline: none;
-}
 
 .infoBox{
     border: 5px solid greenyellow;

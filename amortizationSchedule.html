@@ -34,21 +34,31 @@
                 <div id="app" class="m-calculator">
 
                     <label for="homePrice" class="formLabel-left">Principal Amount</label>
-                    <div class="regBox">
-                        <div data-format="$"><input type="text" id="regBox" class="formInput"
-                                placeholder="Enter Principal Amount" required></div>
-                    </div>
-                    <label for="downPayment" class="formLabel-left">Down Payment</label>
-                    <div class="splitBox">
-                        <div class="downPayment-amount">
-                            <input type="text" id="downPayment-amount" class="formInput" placeholder="$100,000"
-                                required>
-                        </div>
-                        <div class="downPayment-percent" data-format="%">
-                            <input type="text" id="downPayment-percent" class="formInput" placeholder=" 20%" required>
 
+                        <div class="inputBoxIcon">
+                            <span class="inputBoxIcon-dollar">$</span>
+                            <input type="text" id="regBox" class="formInput"
+                            placeholder="Enter Principal Amount" required>
                         </div>
-                    </div>
+                        
+
+        
+                    <label for="downPayment" class="formLabel-left">Down Payment</label>
+                    <!-- <div class="splitBox"> -->
+                        <div class="inputBoxIcon">
+                            <span class="inputBoxIcon-dollar">$</span>
+                            <div class="downPayment-amount">
+                                <input type="text" id="downPayment-amount" class="formInput" placeholder="100,000"
+                                    required>
+                            </div>
+                            
+                            <div class="downPayment-percent">
+                                <input type="text" id="downPayment-percent" class="formInput" placeholder=" 20" required>
+                            </div>
+                            <span class="inputBoxIcon-percent">%</span>
+                        </div>
+                        
+                    <!-- </div> -->
                     <label for="term" class="formLabel-left">Loan Term</label>
                     <div class="regBox">
                         <select id="regBox" class="formInput" required>
@@ -61,15 +71,21 @@
                         </select>
                     </div>
                     <label for="interest" class="formLabel-left">Interest Rate</label>
-                    <div class="regBox">
-                        <div data-format="%"><input type="text" id="regBox" class="formInput"
-                            placeholder="6.12345%" required>
-                    </div>
-                </div>
-            </div>
-            <div class="infoBox">next box</div>
+                    
+                    <div class="inputBoxIcon">
+                        <span class="inputBoxIcon-percent">%</span>
 
+                        <input type="text" id="regBox" class="formInput"
+                            placeholder="6.12345%" required>
+                            
+                    </div>
+                        
+                    
+                
+            </div>
+            <input type="button" id="eval" value="Calculate Your Mortgage!!!!" onclick="" class="evalButton">
         </div>
+        <div class="infoBox">next box</div>
 
     </section>
 
