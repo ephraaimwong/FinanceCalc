@@ -145,8 +145,24 @@ label.formLabel-left{
     color: #f0ead6;
     font-size: 1.8rem;
 }
-
+.evalButton:hover{
+    background: #f0ead6;
+    color: #154c8a;
+}
 
 .infoBox{
     border: 5px solid greenyellow;
+    display: flex;
+}
+
+.infoBoxToggle{
+    font-size: 32px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.infoBoxToggle:hover{
+    background: #154c8a;
+    color: #f0ead6;
 }
