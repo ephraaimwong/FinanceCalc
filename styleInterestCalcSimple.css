@@ -37,19 +37,26 @@ body {
     margin: 0;
     padding: 20px;
   }
-  
-  .calculator-container {
-    max-width: 50%;
+  .container{
+    width: 100%;
+    min-height:100vh;
+    background: #F8F6F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    overflow-y: auto;
+  }
+  .calculator {
     background-color: #154c8a;
     padding: 20px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+
+    border-radius: 25px;
   }
   
   h1 {
     text-align: center;
-    color: #333;
+    color: black;
   }
   
   label {
