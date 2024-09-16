@@ -3,7 +3,11 @@ OU CS3203 Software Engineering
 
 ## What is??
 The money bowl is a web-based tool to empower people of all backgrounds with the tools they need to take control over their financial matters.
+
+Installation Instructions:
 Hop onto https://ephraaimwong.github.io/FinanceCalc/ and get started today!
+Compiler: Visual Studio Code https://code.visualstudio.com/download
+Optional: GitHub Desktop https://desktop.github.com/download/
 
 Functions:
 
@@ -32,3 +36,16 @@ Future Development Ideas:
 3) Investment Calculations
 4) Retirement Fund (25*yearly expenses, 4% rule)
 5) Budgeting Tools
+
+Contribution Guidelines:
+Communicate which Feature you will be working on.
+Download local copy of .main branch.
+Establish branch for your feature/function.
+Periodically download updated repository for .main to stay up to date on latest commits.
+Ensure that you provide updates to the team periodically.
+Start working.
+Communicate Communicate Communicate...
+
+License Informaiton:
+
+Contact Information:
