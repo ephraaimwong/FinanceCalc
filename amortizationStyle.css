@@ -171,6 +171,37 @@ label.formLabel-left{
     background: #154c8a;
     color: #f0ead6;
 }
+.amortSchedule-container{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding-left: 30%;
+    align-items: center;
+    text-align: center;
+}
+#amortHead.table-head{
+    text-align: justify;
+    line-height: .9;/*adjust the spacing between lines caused by <br>*/
+}
+
+#amortTable.table-container{
+    /* table scrolls */
+    max-height: 45vh;
+    overflow-y: auto;
+}
+#amortTable th{
+    /* header does not scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #154c8a;
+
+}
+#amortTable th,td{
+    padding: 10px;
+    border: 1px solid black;
+}
+
 .nextBox{
     border: 5px solid brown;
     /* font-size: 60px; */

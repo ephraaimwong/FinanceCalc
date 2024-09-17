@@ -19,16 +19,29 @@ var numPayments = parseInt(document.getElementsByName("term")[0].value) * 12;
     //clear table when re-calculating
     var table=document.getElementById("amortTable");
     table.innerHTML="";
-
+    var head=document.getElementById("amortHead");
+    head.innerHTML="";
     var validBal = validate(principal);
     var validInt = validate(interestRate);
     if (validBal && validInt) {
+        head.innerHTML+=overview(principal,interestRate,numPayments)
         table.innerHTML+=evalAmort(principal,interestRate,numPayments)
     }else{
         table.innerHTML+="Invalid inputs, please check inputs";
     }
 }
-
+function overview(principal,interestRate,numPayments) {
+    var interestMonthly = interestRate/12;
+    var monthlyPayment = principal * (interestMonthly*(Math.pow(1+interestMonthly,numPayments))/(Math.pow(1+interestMonthly, numPayments)-1));
+    // var resultOverview = "Loan Amount(Principal): $" + principal.toFixed(2) + "<br></br>" 
+    // + "Interest Rate (APR): " + interestRate.toFixed(2)+ "<br></br>"
+    // + "Loan Term (Number of payments): " + numPayments +"<br></br>"
+    // + "Monthly Payment :" + monthlyPayment.toFixed(2) +"<br></br>"
+    // + "Total Interest Paid: " + (monthlyPayment*numPayments-principal).toFixed(2)+ "<br></br>"
+    // + "Total paid: " + (monthlyPayment*numPayments).toFixed(2) + "<br></br>";
+    var resultOverview ="<table><tr><td>Loan Amount(Principal):</td><td>"+"$"+principal.toFixed(2)+"</td></tr><tr><td>Down Payment:</td><td>"+"$"+parseFloat(document.getElementsByName("down")[0].value)+"</td></tr><tr><td>Loan Term(No. of Payments): </td><td>"+numPayments+"</td></tr><tr><td>Monthly Payment:</td><td>"+"$"+monthlyPayment.toFixed(2)+"</td></tr><tr><td>Total Interest Paid:</td><td>"+"$"+(monthlyPayment*numPayments-principal).toFixed(2)+"</td></tr><tr><td>Total Paid:</td><td>"+"$"+(monthlyPayment*numPayments).toFixed(2)+"</td></tr></table>";
+    return resultOverview;
+}
 function evalAmort(principal, interestRate, numPayments){
     let balance = principal;
     //get monthly rate
@@ -37,40 +50,35 @@ function evalAmort(principal, interestRate, numPayments){
     //calculate payment
     var monthlyPayment = principal * (interestMonthly*(Math.pow(1+interestMonthly,numPayments))/(Math.pow(1+interestMonthly, numPayments)-1));
     //toFixed(x) method converts number to string and rounds to x decimals, <br></br> is break line
-    var resultOverview = "Loan Amount(Principal): $" + principal.toFixed(2) + "<br></br>" 
-    + "Interest Rate (APR): " + interestRate.toFixed(2)+ "<br></br>"
-    + "Loan Term (Number of payments): " + numPayments +"<br></br>"
-    + "Monthly Payment :" + monthlyPayment.toFixed(2) +"<br></br>"
-    + "Total Interest Paid: " + (monthlyPayment*numPayments-principal).toFixed(2)+ "<br></br>"
-    + "Total paid: " + (monthlyPayment*numPayments).toFixed(2) + "<br></br>";
+
     //tr = table row, th = table header, td = table data cell
-    resultOverview += "<table><tr><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr>";
+    var resultTable = "<table><tr><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr>";
     let loopInterest=0;
     let loopPrincipal=0;
     for(let i=1;i<numPayments+1;i++){
         //start new row with each loop
-        resultOverview+="<tr>";
+        resultTable+="<tr>";
         //data cell input for month
-        resultOverview+="<td>"+i+"</td>";
+        resultTable+="<td>"+i+"</td>";
         //data cell input for balance
-        resultOverview+="<td>"+balance.toFixed(2)+"</td>";
+        resultTable+="<td>"+balance.toFixed(2)+"</td>";
         //interest portion of monthly payment
         loopInterest = balance*interestMonthly;
-        resultOverview+="<td>"+loopInterest.toFixed(2)+"</td>";
+        resultTable+="<td>"+loopInterest.toFixed(2)+"</td>";
         //principle of monthly payment
         loopPrincipal = monthlyPayment-loopInterest;
-        resultOverview+="<td>"+loopPrincipal.toFixed(2)+"</td>";
+        resultTable+="<td>"+loopPrincipal.toFixed(2)+"</td>";
 
         
 
         //close the row
-        resultOverview+="</tr>";
+        resultTable+="</tr>";
         //update balance principal
         balance-=loopPrincipal;
     }
     //close the table
-    resultOverview+="</table>"
+    resultTable+="</table>"
     //entire schedule returned as concatenated string
-    return resultOverview;
+    return resultTable;
 }
 
