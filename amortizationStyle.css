@@ -184,6 +184,10 @@ label.formLabel-left{
     line-height: .9;/*adjust the spacing between lines caused by <br>*/
 }
 
+canvas{
+    display: block;
+}
+
 #amortTable.table-container{
     /* table scrolls */
     max-height: 45vh;

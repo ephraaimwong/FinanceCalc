@@ -7,6 +7,9 @@
     <title>The Money Bowl</title>
     <link rel="stylesheet" href="amortizationStyle.css">
     <link rel="icon" href="./Img/redmoneybowl-32.ico" type="image/ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- for chart.js -->
+    
 </head>
 
 <body>
@@ -121,7 +124,9 @@
                 <label for="summary">Loan Summary</label>
                 <div class="table-head" id="amortHead"></div>
             </div>
-            <div>graph
+            <div>
+                <!-- <label for="graph">Graph</label> -->
+                <canvas id="amortChart"></canvas>
             </div>
             <div>
                 <label for="schedule">Amortization Schedule</label>
@@ -135,6 +140,69 @@
 
 
     </section>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script> -->
+    
+
+<!-- <script>
+    const ctx = document.getElementById("amortChart").getContext("2d");
+// Clear the previous chart instance if it exists
+    // if(window.amortizationChart){
+    //     window.amortizationChart.destroy();
+    // }
+
+// Create a new chart and store it in window.amortizationChart
+  window.amortizationChart = new Chart(ctx,{
+      type: "line",
+      data: {
+        labels: month,
+        datasets: [
+          {
+            label: "Interest Paid",
+            data: interest,
+            borderColor: "rgba(255, 99, 132, 1)",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            fill: false,
+            borderWidth: 2,
+          },
+          {
+            label: "Principal Paid",
+            data: principal,
+            borderColor: "rgba(54, 162, 235, 1)",
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            fill: false,
+            borderWidth: 2,
+          },
+        ],
+      },
+      options:{
+        scales:{
+            x:{
+                title:{
+                    display:true,
+                    text: "Month"
+                }
+            }
+        },
+        y:{
+            title:{
+                display:true,
+                text:"Amount Paid (USD)"
+            }
+        }
+      },
+      responsive:true,
+      plugins:{
+        legend:{
+            position:"top"
+        },
+        title:{
+            display:true,
+            text:"Amortization: Interest v. Principal Paid Over Time"
+        }
+      }
+    }
+  );
+</script> -->
 
 <script src="amortization.js"></script>
 </body>
