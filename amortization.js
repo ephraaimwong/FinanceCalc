@@ -21,11 +21,14 @@ var numPayments = parseInt(document.getElementsByName("term")[0].value) * 12;
     table.innerHTML="";
     var head=document.getElementById("amortHead");
     head.innerHTML="";
+    var breakdown=document.getElementById("amortInterest");
+    breakdown.innerHTML="";
     var validBal = validate(principal);
     var validInt = validate(interestRate);
     if (validBal && validInt) {
-        head.innerHTML+=overview(principal,interestRate,numPayments)
-        table.innerHTML+=evalAmort(principal,interestRate,numPayments)
+        head.innerHTML+=overview(principal,interestRate,numPayments);
+        table.innerHTML+=evalAmort(principal,interestRate,numPayments);
+        breakdown.innerHTML+=breakDown(principal,interestRate,numPayments);
     }else{
         table.innerHTML+="Invalid inputs, please check inputs";
     }
@@ -33,15 +36,16 @@ var numPayments = parseInt(document.getElementsByName("term")[0].value) * 12;
 function overview(principal,interestRate,numPayments) {
     var interestMonthly = interestRate/12;
     var monthlyPayment = principal * (interestMonthly*(Math.pow(1+interestMonthly,numPayments))/(Math.pow(1+interestMonthly, numPayments)-1));
-    // var resultOverview = "Loan Amount(Principal): $" + principal.toFixed(2) + "<br></br>" 
-    // + "Interest Rate (APR): " + interestRate.toFixed(2)+ "<br></br>"
-    // + "Loan Term (Number of payments): " + numPayments +"<br></br>"
-    // + "Monthly Payment :" + monthlyPayment.toFixed(2) +"<br></br>"
-    // + "Total Interest Paid: " + (monthlyPayment*numPayments-principal).toFixed(2)+ "<br></br>"
-    // + "Total paid: " + (monthlyPayment*numPayments).toFixed(2) + "<br></br>";
-    var resultOverview ="<table><tr><td>Loan Amount(Principal):</td><td>"+"$"+principal.toFixed(2)+"</td></tr><tr><td>Down Payment:</td><td>"+"$"+parseFloat(document.getElementsByName("down")[0].value)+"</td></tr><tr><td>Loan Term(No. of Payments): </td><td>"+numPayments+"</td></tr><tr><td>Monthly Payment:</td><td>"+"$"+monthlyPayment.toFixed(2)+"</td></tr><tr><td>Total Interest Paid:</td><td>"+"$"+(monthlyPayment*numPayments-principal).toFixed(2)+"</td></tr><tr><td>Total Paid:</td><td>"+"$"+(monthlyPayment*numPayments).toFixed(2)+"</td></tr></table>";
-    return resultOverview;
+
+    return "<table><tr><td>Loan Amount(Principal):</td><td>" + "$" + principal.toFixed(2) + "</td></tr><tr><td>Down Payment:</td><td>" + "$" + parseFloat(document.getElementsByName("down")[0].value) + "</td></tr><tr><td>Loan Term(No. of Payments): </td><td>" + numPayments + "</td></tr><tr><td>Pay Off Date:</td><td>" + "tbd" + "</td></tr></table>";
 }
+
+function breakDown(principal,interestRate,numPayments){
+    var interestMonthly = interestRate/12;
+    var monthlyPayment = principal * (interestMonthly*(Math.pow(1+interestMonthly,numPayments))/(Math.pow(1+interestMonthly, numPayments)-1));
+    return "<table><tr><td>Monthly Payment:</td><td>" + "$" + monthlyPayment.toFixed(2) + "</td></tr><tr><td>Total Interest Paid:</td><td>" + "$" + (monthlyPayment * numPayments - principal).toFixed(2) + "</td></tr><tr><td>Total Paid:</td><td>" + "$" + (monthlyPayment * numPayments).toFixed(2) + "</td></tr></table>";
+}
+
 function evalAmort(principal, interestRate, numPayments){
     let balance = principal;
     //get monthly rate
@@ -81,4 +85,16 @@ function evalAmort(principal, interestRate, numPayments){
     //entire schedule returned as concatenated string
     return resultTable;
 }
+
+function calcDown(){
+    let homePrice = document.getElementsByName("principal")[0].value;
+    let percent = document.getElementById("downPayment-percent").value;
+
+    let downPayment = (homePrice * (percent/100)).toFixed(2);
+    document.getElementById("downPayment-amount").value = downPayment;
+}
+
+//call functions upon window load
+// window.onload=calcDown();
+// window.onload=getInputs();
 

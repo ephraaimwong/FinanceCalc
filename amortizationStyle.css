@@ -172,10 +172,10 @@ label.formLabel-left{
     color: #f0ead6;
 }
 .amortSchedule-container{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    padding-left: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    /* padding-left: 30%; */
     align-items: center;
     text-align: center;
 }
