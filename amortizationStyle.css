@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+nav {
+    height: 80px;
+    background: #154c8a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem calc((100vw - 1300px)/2);
+}
+.logo{
+    color: #f0ead6;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logo img{
+    height:80px;
+    margin-right: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #F8F6F0;
+    padding: 0 1.5rem;
+}
+
+nav a:hover{
+    color: purple;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 3fr ;
+    /* grid-template-rows:  auto auto; */
+    gap: 16px;
+    /* grid-auto-rows: auto; */
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 6%;
+    border: 2px solid black;
+    
+}
+#headline{
+    /* grid-column: 1/4; start 1, end 4 */
+    /* grid-row: 1/3; start 1, end 3 */
+    justify-self: center;
+    border: 2px solid green;
+}
+h1{
+    font-size: 40px;
+}
+
+#app.m-calculator{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    border: 2px solid red;
+}
+.calculator{
+    grid-column: 1/2;
+    grid-row: 3/5;
+    border: 3px solid salmon;
+}
+label.formLabel-left{
+    font-size: 32px;
+}
+.regBox{
+    border: 2px solid purple;
+    padding-right: 15%;
+}
+.inputBoxIcon{
+    /* fix $, % icon in input bar */
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-color: violet;
+    padding-right: 15%;
+}
+.inputBoxIcon-dollar{
+    /* fix $ icon in input bar */
+    position: absolute;
+    left: 5%;
+    font-size: 16px;
+    z-index: 1;/* Ensure it's layered above input */
+}
+.inputBoxIcon-percent{
+    position: absolute;
+    right: 20%;
+    font-size: 16px;
+    z-index: 1;/* Ensure it's layered above input */
+}
+.formInput{
+    /* width: 50%; */
+    padding: 12px 30px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #f0ead6;
+    font: 16px Arial, sans-serif;
+}
+.formInput::placeholder{
+    font-size: 16px;
+}
+#regBox.formInput{
+    width: 100%;
+}
+
+.downPayment-amount{
+    flex: 3; /*75%*/
+}
+.downPayment-percent{
+    flex: 2; /*25%*/
+}
+#downPayment-amount.formInput{
+    /* padding-left: 30px; */
+    width: 100%;
+    border-top-left-radius: 15px; /* Left side rounded */
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 0; /* Inner border straight */
+    border-bottom-right-radius: 0; /* Inner border straight */
+    border-right: none;
+}
+#downPayment-percent.formInput {
+    /* padding-right: 30px; */
+    width: 100%;
+    border-top-right-radius: 15px; /* Right side rounded */
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 0; /* Inner border straight */
+    border-bottom-left-radius: 0; /* Inner border straight */
+
+}
+.evalButton{
+    border-radius: 50px;
+    width: 85%; /*match the input box size*/
+    display: flex;
+    border: none;
+    background: #154c8a;
+    color: #f0ead6;
+    font-size: 1.8rem;
+}
+.evalButton:hover{
+    background: #f0ead6;
+    color: #154c8a;
+}
+
+.infoBox{
+    border: 5px solid greenyellow;
+    display: flex;
+    width: 100%;
+}
+
+.infoBoxToggle{
+    font-size: 32px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.infoBoxToggle:hover{
+    background: #154c8a;
+    color: #f0ead6;
+}
+.amortSchedule-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    /* padding-left: 30%; */
+    align-items: center;
+    text-align: center;
+}
+#amortHead.table-head{
+    text-align: justify;
+    line-height: .9;/*adjust the spacing between lines caused by <br>*/
+}
+
+canvas{
+    display: block;
+}
+
+#amortTable.table-container{
+    /* table scrolls */
+    max-height: 45vh;
+    overflow-y: auto;
+}
+#amortTable th{
+    /* header does not scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #154c8a;
+
+}
+#amortTable th,td{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.nextBox{
+    border: 5px solid brown;
+    /* font-size: 60px; */
+}
