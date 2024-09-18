@@ -10,6 +10,7 @@ function validate(val) {
   }
   return true;
 }
+
 function getInputs() {
   var principal =
     parseFloat(document.getElementsByName("principal")[0].value) -
@@ -41,14 +42,12 @@ function overview(principal, interestRate, numPayments) {
     principal *
     ((interestMonthly * Math.pow(1 + interestMonthly, numPayments)) /
       (Math.pow(1 + interestMonthly, numPayments) - 1));
-
+//toLocaleString()formats number with commas and $
   return (
     "<table><tr><td>Loan Amount(Principal):</td><td>" +
-    "$" +
-    principal.toFixed(2) +
+    principal.toLocaleString(undefined, {style:"currency",currency:"usd"}) +
     "</td></tr><tr><td>Down Payment:</td><td>" +
-    "$" +
-    parseFloat(document.getElementsByName("down")[0].value) +
+    parseFloat(document.getElementsByName("down")[0].value).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
     "</td></tr><tr><td>Loan Term(No. of Payments): </td><td>" +
     numPayments +
     "</td></tr><tr><td>Pay Off Date:</td><td>" +
@@ -65,14 +64,10 @@ function breakDown(principal, interestRate, numPayments) {
       (Math.pow(1 + interestMonthly, numPayments) - 1));
   return (
     "<table><tr><td>Monthly Payment:</td><td>" +
-    "$" +
-    monthlyPayment.toFixed(2) +
+    monthlyPayment.toLocaleString(undefined, {style:"currency",currency:"usd"}) +
     "</td></tr><tr><td>Total Interest Paid:</td><td>" +
-    "$" +
-    (monthlyPayment * numPayments - principal).toFixed(2) +
-    "</td></tr><tr><td>Total Paid:</td><td>" +
-    "$" +
-    (monthlyPayment * numPayments).toFixed(2) +
+    (monthlyPayment * numPayments - principal).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
+    "</td></tr><tr><td>Total Paid:</td><td>" + (monthlyPayment * numPayments).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
     "</td></tr></table>"
   );
 }
@@ -104,13 +99,13 @@ function evalAmort(principal, interestRate, numPayments) {
     //data cell input for month
     resultTable += "<td>" + i + "</td>";
     //data cell input for balance
-    resultTable += "<td>" + balance.toFixed(2) + "</td>";
+    resultTable += "<td>" + balance.toLocaleString(undefined, {style:"currency",currency:"usd"}) + "</td>";
     //interest portion of monthly payment
     loopInterest = balance * interestMonthly;
-    resultTable += "<td>" + loopInterest.toFixed(2) + "</td>";
+    resultTable += "<td>" + loopInterest.toLocaleString(undefined, {style:"currency",currency:"usd"}) + "</td>";
     //principle of monthly payment
     loopPrincipal = monthlyPayment - loopInterest;
-    resultTable += "<td>" + loopPrincipal.toFixed(2) + "</td>";
+    resultTable += "<td>" + loopPrincipal.toLocaleString(undefined, {style:"currency",currency:"usd"}) + "</td>";
 
     monthArr.push(i);
     interestArr.push(loopInterest);
