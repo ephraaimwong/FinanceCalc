@@ -47,7 +47,7 @@ nav a:hover{
     /* grid-auto-rows: auto; */
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 6%;
+    padding-top: 2%;
     border: 2px solid black;
     
 }
@@ -180,18 +180,23 @@ label.formLabel-left{
     text-align: center;
 }
 #amortHead.table-head{
+    display: flex;
     text-align: justify;
     line-height: .9;/*adjust the spacing between lines caused by <br>*/
+    justify-content: center;
 }
 
 canvas{
     display: block;
+    width: 100%;
 }
 
 #amortTable.table-container{
     /* table scrolls */
     max-height: 45vh;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
 }
 #amortTable th{
     /* header does not scroll */
@@ -204,6 +209,12 @@ canvas{
 #amortTable th,td{
     padding: 10px;
     border: 1px solid black;
+}
+
+#amortInterest.table-head{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
 }
 
 .nextBox{

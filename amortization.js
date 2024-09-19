@@ -163,7 +163,8 @@ function drawChart(month, interest, principal) {
         x: { title: { display: true, text: "Month" } },
         y: { title: { display: true, text: "Amount Paid (USD)" } },
       },
-      responsive: true,
+      responsive: true,//allows for dynamatic resizing (zooming out)
+      // maintainAspectRatio: false,
       plugins: {
         legend: { position: "top" },
         title: {
