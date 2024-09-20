@@ -20,42 +20,35 @@ Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
 
 1) [Landing Page](https://ephraaimwong.github.io/FinanceCalc/)
 
-Contributor(s): Ephraim, Daniel, Nthati
+   Contributor(s): Ephraim, Daniel, Nthati
 
-Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
+   Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
+2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)Contributor(s): Ephraim
 
-2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)
-
-Contributor(s): Ephraim
-
-Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calculations. The calculator is represented by means of traditional labelled buttons with equation display and result display fields. User can also use their keyboards as I/O device to directly enter or copy their equations into the equation display field.
-
+   Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calculations. The calculator is represented by means of traditional labelled buttons with equation display and result display fields. User can also use their keyboards as I/O device to directly enter or copy their equations into the equation display field.
 3) [Simple Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/interestCalcSimple.html)
 
-Contributor(s): Daniel, Nthati
+   Contributor(s): Daniel, Nthati
 
-User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
-This tool helps stuff like Auto Loans, Personal Loans, etc...
-
+   User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
+   This tool helps stuff like Auto Loans, Personal Loans, etc...
 4) [Compound Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/compoundInterestCalc2.html) ([basic](https://www.discover.com/online-banking/cd-lng-02/?cmpgnid=ps-bk-ggl-nonchck-agl-ggl-pmax-test-pmx&src=S00001AON&van=Dbank&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYJFrwuQYpUSMPo3B6_HE-QI17n864Sqpme6_yZD7zYNBMilg93O6AaAqifEALw_wcB&gclsrc=aw.ds) v. [advanced](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator))
 
-Contributor(s): Jarett, Ephraim
+   Contributor(s): Jarett, Ephraim
 
-User-Friendly tool which generates a breakdown schedule of compounded interest.
-This tool helps retirement planning, investment, stocks/bonds, fixed deposits, etc...
-
+   User-Friendly tool which generates a breakdown schedule of compounded interest.
+   This tool helps retirement planning, investment, stocks/bonds, fixed deposits, etc...
 5) [Amortized Interest Schedule](https://ephraaimwong.github.io/FinanceCalc/amortizationSchedule.html)
 
-Contributor(s): Ephraim
+   Contributor(s): Ephraim
 
-User-Friendly tool that generates loan payments and breakdown between principal and interest as per using [Amortization Formula](https://www.highradius.com/resources/Blog/amortization-schedule-formula/).
-This tool helps mortgage loans, giving users a detailed breakdown of monthly payments, loan summary and useful graph to clearly illustrate the payment of principal v. interest over time.
-
+   User-Friendly tool that generates loan payments and breakdown between principal and interest as per using [Amortization Formula](https://www.highradius.com/resources/Blog/amortization-schedule-formula/).
+   This tool helps mortgage loans, giving users a detailed breakdown of monthly payments, loan summary and useful graph to clearly illustrate the payment of principal v. interest over time.
 6) Contact Support
 
-Contributor(s): Javid
+   Contributor(s): Javid
 
-User-Friendly contact page for users to submit suggestions and feedback for continued development of the product.
+   User-Friendly contact page for users to submit suggestions and feedback for continued development of the product.
 
 Future Development Ideas:
 
