@@ -20,7 +20,7 @@ Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
 
 1) [Landing Page](https://ephraaimwong.github.io/FinanceCalc/)
 
-Contributor(s): Ephraim, David, Nthati
+Contributor(s): Ephraim, Daniel, Nthati
 
 Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
 
@@ -32,7 +32,7 @@ Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calcula
 
 3) [Simple Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/interestCalcSimple.html)
 
-Contributor(s): David, Nthati
+Contributor(s): Daniel, Nthati
 
 User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
 This tool helps stuff like Auto Loans, Personal Loans, etc...
