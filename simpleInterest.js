@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // // Calculate simple interest
         // Display the result
-        container.innerHTML = `The interest gained is ${total_interest}`;
+        calculator.innerHTML = `The interest gained is ${total_interest}`;
     }
 
     document.getElementById("calculate-button").addEventListener("click", calc_simple_interest);
