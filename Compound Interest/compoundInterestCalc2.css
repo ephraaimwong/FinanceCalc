@@ -156,7 +156,4 @@ body {
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  tr{
-    /* styling odd rows -EPHRAIM */
-    background-color: #f6f7ee;
-  }
+  

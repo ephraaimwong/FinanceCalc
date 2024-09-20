@@ -31,13 +31,9 @@ function calculateCompoundInterest() {
     document.getElementById('result').innerHTML = `
         <p>Total Amount: $${totalAmount}</p>
         <p>Interest Earned: $${interestEarned}</p>`;
-    document.getElementById('schedule').innerHTML = schedule + `</table>`;
-
-    //Show ScheduleTable - EPHRAIM
-    document.getElementById('scheduleTable').style.display = 'block';
-
-  } else {
-    document.getElementById('result').innerHTML = 'Please enter valid inputs.';
-    document.getElementById('schedule').innerHTML = '';
-  }
-}
+      document.getElementById('schedule').innerHTML = schedule + `</table>`;
+    } else {
+      document.getElementById('result').innerHTML = 'Please enter valid inputs.';
+      document.getElementById('schedule').innerHTML = '';
+    }
+  }  
