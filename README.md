@@ -6,7 +6,7 @@ OU CS3203 Software Engineering
 
 The money bowl is a web-based tool to empower people of all backgrounds with the tools they need to take control over their financial matters.
 
-Installation Instructions: Hop onto https://ephraaimwong.github.io/FinanceCalc/Landing Page/ and get started today!
+Installation Instructions: Hop onto [https://ephraaimwong.github.io/FinanceCalc/Landing Page/](https://ephraaimwong.github.io/FinanceCalc/Landing%20Page/) and get started today!
 
 Compiler: Visual Studio Code https://code.visualstudio.com/download
 
