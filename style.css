@@ -1,0 +1,439 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF; /* White background */
+    margin: 0;
+    padding: 0;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    height: 81vh;
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: right;
+    background-color: #0033A0; /* Chase Blue */
+    padding: 22px 0;
+    width: 100%;
+}
+
+.navbar a {
+    color: #FFFFFF; /* White text color */
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    position: relative; /*underline effect*/
+}
+
+
+/*HOVER EFFECTS WITH UNDERLINE ANIMATION*/
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FFFFFF;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1);
+}
+
+
+.container {
+    display: flex;
+    width: 60vw; 
+    height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.image-box, .calculator-box {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #fff; /* Light grey line */
+    background-color: #fff; /* Light grey background */
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 70%; /* Reduced size */
+    height: auto;
+}
+
+.calculator-box {
+    background-color: #FFFFFF; /* White background for the calculator box */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 20vw; 
+    height: 20vh;
+
+    
+}
+
+
+
+h1 {
+    color: #0033A0; /* Chase Blue for heading */
+    margin-bottom: 20px;
+    text-align: center; /* Aligns the text to the left */
+    margin-left: 20px; /* Adds a bit of space from the left side */
+    font-size: 20px;
+    font-family: 'Crimson Text', serif; 
+}
+
+.input-container {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0033A0; /* Chase Blue for labels */
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1b9b9;
+    border-radius: 80px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); /* Inward shadow for 3D effect */
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #F9F9F9; /* Light background color for better visibility */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on focus for emphasis */
+    border-color: #0033A0; /* Chase Blue border color on focus */
+}
+
+
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+button {
+    background-color: #0033A0; /* Chase Blue */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 16px;
+    margin: 0 10px; /* Space between buttons */
+}
+
+
+
+
+/*section I just added*/
+
+/* Hover effect for calculate button */
+#calculate-button:hover {
+    background-color: #118e26; /* Light Blue for hover effect */
+}
+
+/* Hover effect for period buttons */
+.period-button:hover {
+    background-color: #1048b8; /* Darker Blue for hover effect */
+    color: #FFFFFF; /* White text color */
+}
+
+
+button:hover {
+    background-color: hsl(126, 72%, 44%); /* Light Blue for hover effect */
+}
+
+.period-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.period-buttons {
+    display: flex;
+    gap: 1px;
+    margin-bottom: 5px;
+}
+
+.period-button {
+    background-color: #FFFFFF; /* White background for buttons */
+    color: #0033A0; /* Chase Blue text color */
+    border: 1px solid #0033A0; /* Chase Blue border */
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.period-button.selected {
+    background-color: #0033A0; /* Chase Blue when selected */
+    color: #FFFFFF; /* White text color when selected */
+}
+
+.result-container {
+    margin-top: -45px; /* moves the result container up by reducing the margin */
+    padding: 10px; /*padding for better readability */
+    background-color: #f0f0f0; /*Background color for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* centers the text inside the result container */
+    position: relative; /* Ensure it's positioned relative to its normal flow */
+    z-index: 1; /* Ensure it's above other elements if necessary */
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #ffffff; /* Light grey background for the bar */
+    border-radius: 5px;
+    margin-top: 50px;
+    height: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #0033A0; /* Chase Blue */
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.main-box {
+    display: flex;
+    width: 55vw; /* Slightly smaller width */
+    height: 80vh;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.fancy-line {
+    width: 1px; /* Width of the fancy line */
+    background: linear-gradient(to bottom, transparent 15%, rgb(223, 198, 198) 20%, /*transparent 50%,*/ rgb(215, 204, 204) 15%); /* Bulging effect */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/*BUTTON CHANGE*/
+/* Styles for the Period Selection Section */
+.period-container {
+    display: flex;
+    align-items: left;
+    margin-bottom: 20px;
+}
+
+/* Styles for Period Labels and Radio Buttons */
+.period-label {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px; /* Space between radio buttons */
+}
+
+/* Radio Button Styling */
+.period-label input[type="radio"] {
+    appearance: none; /* Remove default radio button styling */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0033A0; /* Chase Blue border */
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+}
+
+/* Checked Radio Button Style */
+.period-label input[type="radio"]:checked::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #0033A0; /* Chase Blue */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Period Text Styling */
+.period-text {
+    color: #0033A0; /* Chase Blue text */
+    font-size: 16px;
+}
+
+/* Style for the floating title */
+.main-box {
+    position: relative;
+} 
+
+.floating-title {
+    position: absolute;
+    top: 150px; /* Adjust to position */
+    left: 110px; /* Adjust to position */
+    font-size: 22px;
+    font-weight: bold;
+    color: #0033A0; 
+    z-index: 10; /* Makes sure it stays on top */
+    text-align: center; /* Center text */
+    line-height: 1.3; /* Adjust space between lines */
+    font-family: 'Crimson Text', serif; /* Applies the Crimson Text font */
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90vw;
+    }
+
+    .calculator-box, .image-box {
+        width: 100%;
+    }
+}
+
+
+.period-container {
+    display: flex;
+    align-items: left;
+    margin-bottom: 20px;
+}
+
+.period-label {
+    margin-right: 20px; /* Space between radio buttons */
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+    color: #123580;
+    
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Space between radio and label */
+    accent-color: #0073CF
+}
+
+/* Interest Type Radio Buttons (side by side) */
+.interest-type {
+    display: flex; /* Make the radio buttons and labels appear side by side */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add space between the buttons */
+    margin: 15px 0;
+}
+
+
+.interest-type label {
+    display: flex;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-top: 5px;
+    gap: 12px;
+}
+
+/* Period Type Radio Buttons (optional, if you want them side by side too) */
+.period-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add space between the buttons */
+}
+
+
+/* General radio group styling */
+.radio-group {
+    display: flex; /* Ensures horizontal layout */
+    justify-content: left; /* Center the radio buttons */
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+    margin: 5px 5px;
+}
+
+/*drrrrrrr*/
+.radio-label {
+    font-size: 12px;
+    color: #0033A0; /* Chase blue */
+    display: flex;
+    align-items: LEFT;
+    margin-right: 10px;
+    margin-top: 5px;
+    gap: 12px;
+}
+
+/*ADDZZZZZZZ*/
+/* Increases the size of the radio button and add shadow */
+.radio-label input[type="radio"] {
+    margin-right: 5px;
+    appearance: none;
+    width: 20px;  /* Larger width */
+    height: 20px; /* Larger height */
+    border: 2px solid #99a2b4; /* Chase blue border */
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #ffffff; /* White background */
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for outer circle (3D effect) */
+}
+
+/* When selected, adds shadow inside the radio button hole */
+.radio-label input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;  /* Larger inner dot */
+    height: 10px; /* Larger inner dot */
+    background-color: #2978b8; /* Chase blue inner dot */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3); /* Shadow inside the inner dot */
+}
+
+/* Hover effect for a larger button */
+.radio-label:hover input[type="radio"] {
+    background-color: #e0f0ff;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Outer shadow effect */
+}
+
