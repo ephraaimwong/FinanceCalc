@@ -28,12 +28,26 @@ function calculateCompoundInterest() {
     const interestEarned = (compoundInterest - principal).toFixed(2);
     
     //Display scheduleTable
-    document.getElementById('result').innerHTML = `
-        <p>Total Amount: $${totalAmount}</p>
-        <p>Interest Earned: $${interestEarned}</p>`;
-      document.getElementById('schedule').innerHTML = schedule + `</table>`;
-    } else {
-      document.getElementById('result').innerHTML = 'Please enter valid inputs.';
-      document.getElementById('schedule').innerHTML = '';
-    }
-  }  
+   // document.getElementById('result').innerHTML = `
+     //   <p>Total Amount: $${totalAmount}</p>
+      //  <p>Interest Earned: $${interestEarned}</p>`;
+      //document.getElementById('schedule').innerHTML = schedule + `</table>`;
+  //  } else {
+   //   document.getElementById('result').innerHTML = 'Please enter valid inputs.';
+   //   document.getElementById('schedule').innerHTML = '';
+   // }
+ // }
+
+  document.getElementById('result').innerHTML = `
+  <p>Total Amount: $${totalAmount}</p>
+  <p>Interest Earned: $${interestEarned}</p>`;
+document.getElementById('schedule').innerHTML = schedule + `</table>`;
+
+// Make the scheduleTable visible
+document.querySelector('.scheduleTable').style.display = 'block';
+} else {
+document.getElementById('result').innerHTML = 'Please enter valid inputs.';
+document.getElementById('schedule').innerHTML = '';
+document.querySelector('.scheduleTable').style.display = 'none';  // Hide table if inputs are invalid
+}
+}
