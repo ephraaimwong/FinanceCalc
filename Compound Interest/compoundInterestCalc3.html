@@ -1,12 +1,10 @@
-<!-- Author: Jarrett Covington CS3203 Compound Interest Calculator html file, contains classes that
- communicate to associated .css and .js files to take user input and provide an output.-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compound Interest Calculator</title>
-  <link rel="stylesheet" href="compoundInterestCalc2.css">
+  <title>Compound Interest & Loan Calculator</title>
+  <link rel="stylesheet" href="compoundInterestCalc3.css">
   <link rel="icon" type="image/ico" href="./Img/redmoneybowl-32.ico">
 </head>
 <body>
@@ -21,12 +19,16 @@
     
   <div class="container">
     <div class="calculator">
-    <h1>Compound Interest Calculator</h1>
+    <h1>Financial Calculator</h1>
+    
+    <!-- Toggle Switch for Mode Selection -->
+    <label class="switch">
+      <input type="checkbox" id="calculationMode" onchange="toggleMode()">
+      <span class="slider"></span>
+    </label>
+    <label for="calculationMode" id="calculationLabel">Compound Interest</label>
+
     <form id="compoundInterestForm">
-      <label class="swtich">
-        <input type="checkbox">
-        <span class="slider"></span>
-      </label>
       <label for="principal">Principal Amount ($):</label>
       <input type="number" id="principal" placeholder="Enter principal amount" required>
       <label for="rate">Interest Rate (%):</label>
@@ -39,9 +41,9 @@
         <option value="months">Months</option>
         <option value="days">Days</option>
       </select>
-      <label for="compounds">Number of Compounds Per Year:</label>
+      <label for="compounds" id="compoundsLabel">Number of Compounds Per Year:</label>
       <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
-      <button type="button" onclick="calculateCompoundInterest()">Calculate Interest</button>
+      <button type="button" onclick="calculate()">Calculate</button>
     </form>
     </div>
   
@@ -52,6 +54,6 @@
     
   </div>
 
-     <script src="compoundInterestCalc2.js"></script>
+  <script src="compoundInterestCalc3.js"></script>
 </body>
 </html>
