@@ -5,7 +5,7 @@
 //var balance; //outstanding balance of principle
 //var principal;
 function validate(val) {
-  if (val == null || val == "" || val <=0) {
+  if (val == null || val == "") {
     return false;
   }
   return true;
@@ -184,19 +184,7 @@ function calcDown() {
   document.getElementById("downPayment-amount").value = downPayment;
 }
 
-//if statement allows jest to run
-if(typeof window !== 'undefined'){
-  window.onload = () =>{
-    getInputs();
-    console.log(monthArr, interestArr, principalArr);
-  }
-}
-
-module.exports={
-  validate,
-  overview,
-  breakDown,
-  evalAmort,
-  getInputs
-}
-
+//call functions upon window load
+// window.onload=calcDown();
+window.onload = getInputs();
+console.log(monthArr, interestArr, principalArr);
