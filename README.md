@@ -14,6 +14,8 @@ Optional (but useful git version control tool): GitHub Desktop https://desktop.g
 
 Languages: HTML5, CSS3, JavaScript ES2023
 
+Unit Testing: Node, npm, Jest
+
 Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
 
 ### Contents
@@ -82,7 +84,55 @@ Contribution Guidelines:
    Follow the instructions of the guide
 4. Periodically fetch updated .main into your feature branch to stay up to date on latest commits.
 5. Ensure that you provide updates to the team periodically.
-6. Start working.
+6. Create Jest unit tests in each specific feature directory.
+
+   1. Download [Node(v20.18.0) and NPM(10.8.2)](https://nodejs.org/en/download/prebuilt-installer)
+   2. Check that Node and npm is properly installed:
+
+      ```
+      node -v
+      //should show v20.18.0
+      npm -v
+      //should show 10.8.2
+      ```
+   3. Move to directory in local machine containing feature `cd <featureName>`
+   4. Create package.json (`npm init -y` creates default template)
+   5. Install Jest as development dependency `npm i --save-dev jest`
+   6. Configure Jest for jsdom environment (our program is browser not node based). package.json should look similar to this:
+
+      ```
+       {
+        "name": "financecalc",
+        "version": "1.0.0",
+        "description": "OU CS3203 Software Engineering",
+        "main": "index.js",
+        "scripts": {
+          "test": "jest" //change to jest from whatever
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+      /* this segment configures jsdom environment
+        "devDependencies": {
+          "jest": "^29.7.0",
+          "jest-environment-jsdom": "^29.7.0"
+        },
+        "jest": {
+          "testEnvironment": "jest-environment-jsdom"
+        }
+      }
+      */
+      ```
+   7. Create a mirror test file `<fileName>.test.js` where all units tests will be coded in.
+   8. run tests `npm test`!
+   9. Recommended tutorials to start Jest unit testing:
+
+      Brief
+      [![alt text](https://img.youtube.com/vi/FgnxcUQ5vho/0.jpg)](https://www.youtube.com/watch?v=FgnxcUQ5vho)
+
+      Detailed
+      [![alt text](https://img.youtube.com/vi/zuKbR4Q428o/0.jpg)](https://www.youtube.com/watch?v=zuKbR4Q428o)
+7. Start working.
    Communicate Communicate Communicate...
 
 License Information:
