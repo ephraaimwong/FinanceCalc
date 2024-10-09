@@ -6,7 +6,7 @@ OU CS3203 Software Engineering
 
 The money bowl is a web-based tool to empower people of all backgrounds with the tools they need to take control over their financial matters.
 
-Installation Instructions: Hop onto https://ephraaimwong.github.io/FinanceCalc/ and get started today!
+Installation Instructions: Hop onto [https://ephraaimwong.github.io/FinanceCalc/Landing Page/](https://ephraaimwong.github.io/FinanceCalc/Landing%20Page/) and get started today!
 
 Compiler: Visual Studio Code https://code.visualstudio.com/download
 
@@ -14,48 +14,43 @@ Optional (but useful git version control tool): GitHub Desktop https://desktop.g
 
 Languages: HTML5, CSS3, JavaScript ES2023
 
+Unit Testing: Node, npm, Jest
+
 Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
 
 ### Contents
 
-1) [Landing Page](https://ephraaimwong.github.io/FinanceCalc/)
+1) [Landing Page](https://ephraaimwong.github.io/FinanceCalc/Landing Page/)
 
-Contributor(s): Ephraim, Daniel, Nthati
+   Contributor(s): Ephraim, Daniel, Nthati
 
-Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
+   Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
+2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)Contributor(s): Ephraim
 
-2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)
-
-Contributor(s): Ephraim
-
-Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calculations. The calculator is represented by means of traditional labelled buttons with equation display and result display fields. User can also use their keyboards as I/O device to directly enter or copy their equations into the equation display field.
-
+   Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calculations. The calculator is represented by means of traditional labelled buttons with equation display and result display fields. User can also use their keyboards as I/O device to directly enter or copy their equations into the equation display field.
 3) [Simple Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/interestCalcSimple.html)
 
-Contributor(s): Daniel, Nthati
+   Contributor(s): Daniel, Nthati
 
-User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
-This tool helps stuff like Auto Loans, Personal Loans, etc...
-
+   User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
+   This tool helps stuff like Auto Loans, Personal Loans, etc...
 4) [Compound Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/compoundInterestCalc2.html) ([basic](https://www.discover.com/online-banking/cd-lng-02/?cmpgnid=ps-bk-ggl-nonchck-agl-ggl-pmax-test-pmx&src=S00001AON&van=Dbank&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYJFrwuQYpUSMPo3B6_HE-QI17n864Sqpme6_yZD7zYNBMilg93O6AaAqifEALw_wcB&gclsrc=aw.ds) v. [advanced](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator))
 
-Contributor(s): Jarett, Ephraim
+   Contributor(s): Jarett, Ephraim
 
-User-Friendly tool which generates a breakdown schedule of compounded interest.
-This tool helps retirement planning, investment, stocks/bonds, fixed deposits, etc...
-
+   User-Friendly tool which generates a breakdown schedule of compounded interest.
+   This tool helps retirement planning, investment, stocks/bonds, fixed deposits, etc...
 5) [Amortized Interest Schedule](https://ephraaimwong.github.io/FinanceCalc/amortizationSchedule.html)
 
-Contributor(s): Ephraim
+   Contributor(s): Ephraim
 
-User-Friendly tool that generates loan payments and breakdown between principal and interest as per using [Amortization Formula](https://www.highradius.com/resources/Blog/amortization-schedule-formula/).
-This tool helps mortgage loans, giving users a detailed breakdown of monthly payments, loan summary and useful graph to clearly illustrate the payment of principal v. interest over time.
-
+   User-Friendly tool that generates loan payments and breakdown between principal and interest as per using [Amortization Formula](https://www.highradius.com/resources/Blog/amortization-schedule-formula/).
+   This tool helps mortgage loans, giving users a detailed breakdown of monthly payments, loan summary and useful graph to clearly illustrate the payment of principal v. interest over time.
 6) Contact Support
 
-Contributor(s): Javid
+   Contributor(s): Javid
 
-User-Friendly contact page for users to submit suggestions and feedback for continued development of the product.
+   User-Friendly contact page for users to submit suggestions and feedback for continued development of the product.
 
 Future Development Ideas:
 
@@ -89,7 +84,55 @@ Contribution Guidelines:
    Follow the instructions of the guide
 4. Periodically fetch updated .main into your feature branch to stay up to date on latest commits.
 5. Ensure that you provide updates to the team periodically.
-6. Start working.
+6. Create Jest unit tests in each specific feature directory.
+
+   1. Download [Node(v20.18.0) and NPM(10.8.2)](https://nodejs.org/en/download/prebuilt-installer)
+   2. Check that Node and npm is properly installed:
+
+      ```
+      node -v
+      //should show v20.18.0
+      npm -v
+      //should show 10.8.2
+      ```
+   3. Move to directory in local machine containing feature `cd <featureName>`
+   4. Create package.json (`npm init -y` creates default template)
+   5. Install Jest as development dependency `npm i --save-dev jest`
+   6. Configure Jest for jsdom environment (our program is browser not node based). package.json should look similar to this:
+
+      ```
+       {
+        "name": "financecalc",
+        "version": "1.0.0",
+        "description": "OU CS3203 Software Engineering",
+        "main": "index.js",
+        "scripts": {
+          "test": "jest" //change to jest from whatever
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+      /* this segment configures jsdom environment
+        "devDependencies": {
+          "jest": "^29.7.0",
+          "jest-environment-jsdom": "^29.7.0"
+        },
+        "jest": {
+          "testEnvironment": "jest-environment-jsdom"
+        }
+      }
+      */
+      ```
+   7. Create a mirror test file `<fileName>.test.js` where all units tests will be coded in.
+   8. run tests `npm test`!
+   9. Recommended tutorials to start Jest unit testing:
+
+      Brief
+      [![alt text](https://img.youtube.com/vi/FgnxcUQ5vho/0.jpg)](https://www.youtube.com/watch?v=FgnxcUQ5vho)
+
+      Detailed
+      [![alt text](https://img.youtube.com/vi/zuKbR4Q428o/0.jpg)](https://www.youtube.com/watch?v=zuKbR4Q428o)
+7. Start working.
    Communicate Communicate Communicate...
 
 License Information:
