@@ -1,0 +1,152 @@
+<!--HTML file-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Investment Calculator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleInterestCalcSimple.css">
+</head>
+<body>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        
+
+        <!-- Main box to perform calculations-->
+        <div class="top-container">
+            
+            <div class="main-container">
+              <!-- Box for the image -->
+
+                  <!-- Container for the image on the left-->
+                    <div class="image-container">
+                      <h2 class="floating-title">SIMPLE INTEREST <br> CALCULATOR</h2>
+                      <img src="pic1.png" alt="Investment Growth Graph">
+                  </div>
+
+                  <!-- Separator line - Fancy line -->
+                  <div class="vertical-line"></div>
+
+                    <!-- Container for the inputt texts on the right -->
+                    <div class="calculator-box">
+                    <div class="input-container">
+                        <label for="principal">STARTING BALANCE</label>
+                        <input type="number" id="principal" placeholder="Enter Principal Amount">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="interest-rate">INTEREST RATE</label>
+                        <input type="number" id="rate" placeholder="Enter Interest Rate">
+                        
+                        <!-- Radio buttons for Interest Rate period -->
+                        <div class="radio-group interest-type">
+                            <label class="radio-label">
+                                <input type="radio" name="interest-period" value="years" checked>
+                                YEARS
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="interest-period" value="months">
+                                MONTHS
+                            </label>
+                        </div>
+                    </div>
+                    
+
+                    <div class="period-container">
+                        <label for="period">PERIOD</label>
+                        <input type="number" id="period" placeholder="Enter Period">
+                        
+                        <!-- Radio buttons for investment period -->
+                        <div class="radio-group period-type">
+                            <label class="radio-label">
+                                <input type="radio" name="investment-period" value="years" checked>
+                                YEARS
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="investment-period" value="months">
+                                MONTHS
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button id="calculate-button">CALCULATE</button>
+                    </div>
+
+                    
+                       
+<!-- SHOW THE RESULT ONLY AFTER CALCULATIONS - ADD JS CODE FOR THAT -->
+                    <!-- <div id="result" class="result-container"></div> -->
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+                </div>
+
+          <!-- Container for the table to be displayed to the right of the main container of calculation -->
+
+          <div class="result-table">
+            <table id="dynamicTable">
+                <thead>
+                    <tr>
+                        <th> Schedule </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+               </tbody>
+            </table>
+          </div>
+
+          <!-- Container for the Doughnut Chart -->
+          <div class="donut-container">
+          <div class="donut-chart">
+            <!-- Doughnut chart canvas -->
+        <canvas id="doughnutChart" ></canvas>
+          </div>
+
+          </div>
+
+            </div>
+
+        <div class="bottom-container">
+          <p> Jelly</p>
+              <div class="chart-container">
+                <canvas id="growthTrendChart"></canvas>
+            </div>
+        </div>
+        </div>
+
+        
+        <!-- Display the table -->
+   <!--   <table id="dynamicTable">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+
+          PLEASE COMMENT THE ONE BELOW 
+
+            Rows will be populated here by JavaScript -->
+       <!-- </tbody>
+    </table> -->
+
+
+<!-- Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="simpleInterest.js"></script>
+
+</body>
+</html>
