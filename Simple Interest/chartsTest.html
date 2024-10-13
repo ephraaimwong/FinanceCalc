@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Trend Graph</title>
+    <style>
+        .chart-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        canvas {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chart-container">
+    <canvas id="growthTrendChart"></canvas>
+</div>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('growthTrendChart').getContext('2d');
+
+    const data = {
+        labels: ['0 Yr', '5 Yr', '10 Yr'],
+        datasets: [
+            {
+                label: 'Principle',
+                backgroundColor: '#219EBC',  // Dark blue color
+                data: [10000, 10000, 10000],  // Constant value for Principle
+                fill: true,  // No filling for the line
+                borderColor: '#219EBC',  // Color of the line
+                borderWidth: 2,  // Width of the line
+            },
+            {
+                label: 'Interest',
+                backgroundColor: '#3AB0FF',  // Light blue color
+                data: [10000, 25000, 40000],  // Cumulative interest starting from the same point
+                fill: true,  // Area below is filled
+                borderColor: '#3AB0FF',  // Color of the line
+                borderWidth: 2,  // Width of the line
+            },
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Growth Trend'
+                }
+            },
+            elements: {
+                line: {
+                    tension: 0,  // No curvature (straight lines)
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'K';
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const growthTrendChart = new Chart(ctx, config);
+</script>
+
+</body>
+</html>

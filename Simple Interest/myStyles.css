@@ -1,0 +1,41 @@
+/* Daniel's CSS */
+
+.main-container {
+    display: flex;           /* Enables flexbox layout */
+    gap: 20px;               /* 20px space between the two containers */
+    justify-content: center; /* Centers the containers horizontally */
+    align-items: center;
+    width: 40.625rem; 
+    height: 25.313rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-left: 1rem;
+    margin-top: 1rem;
+         /* Aligns containers vertically in the middle (optional) */
+}
+
+.calculator-box, .image-container {
+    flex: 1;                 /* Ensures both containers take up equal space */
+    max-width: 50%;          /* Ensures each container doesn't exceed 50% of the parent width */
+    box-sizing: border-box;  /* Includes padding and border in the width calculation */
+}
+
+
+/* Remove the scrolling arrow */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.floating-title{
+  position: relative;
+  padding: 1rem;
+}
+
+/* Style the main titl and image box */
