@@ -1,43 +1,65 @@
-
+//since chart.js was called in HTML via CDN, we need to either 1) download chart.js locally and import into this test file or 2)create a Jest mockup of chart.js
+global.Chart = jest.fn().mockImplementation(() => {
+    return {
+        destroy: jest.fn(),
+        update: jest.fn(),
+    };
+});
 
 const {validate, overview,breakDown,evalAmort} = require('./amortization');
 
-//
-// global.document = {
-//     getElementsByName: jest.fn().mockReturnValue([{value:10000}]),
-//     getElementsById: jest.fn().mockReturnValue({innerHTML: ""}),
-// };
 
 //mock HTML values that reset before each test runs
 beforeEach(() => {
     document.getElementsByName = jest.fn((name) => {
         switch(name){
-            case"principal": console.log("mocking principal");return[{value:"100000"}];
-            case"down": console.log("mocking down");return[{value:"20000"}];
-            case"interest": console.log("mocking interest");return[{value:"5"}];
-            case"term": console.log("mocking term");return[{value:"360"}];
+            case"principal": return[{value:"100000"}];
+            case"down": return[{value:"20000"}];
+            case"interest": return[{value:"5"}];
+            case"term": return[{value:"360"}];
             default:return[{value:"0"}];
         }
         
     });
 });
 
+document.getElementById = jest.fn((id)=>{
+    if (id === "amortChart") {
+        return{
+            //return mock call of getContext
+            getContext: jest.fn(() => ({
+                //mock context methods for Chart.js
+                canvas: {} 
+            })),
+        };
+        return{innerHTML:"", value:""}
+    }
+})
+
 describe("validate function", () => {
-    test('should return false for NULL, empty values, neg values', () => {
+    test('should return false for NULL', () => {
         expect(validate(null)).toBe(false); //call function on null
+    });
+    test('should return false for empty string', () => {
         expect(validate("")).toBe(false); //call function on empty string
+    });
+    test('should return false for negative int', () => {
         expect(validate(-100)).toBe(false); //call function on neg int
+    });
+    test('should return false for negative float', () => {
         expect(validate(-100.01)).toBe(false); //call function on neg float
     });
-
-    test('should return true for positive values', () => {
+    
+    test('should return true for positive int', () => {
         expect(validate(100)).toBe(true); //call function on positive int
+    });
+    test('should return true for positive float', () => {
         expect(validate(100.01)).toBe(true); // call function on positive float
     });
 });
 
 describe('overview function', () => {
-    test('should return correct HTML table for loan details', () => {
+    test('should return correct HTML table for "loan details"', () => {
         var principal = document.getElementsByName("principal")[0].value - document.getElementsByName("down")[0].value; //principal for this function refers to total - downpayment;
         var interestRate = document.getElementsByName("interest")[0].value / 100;
         var numPayments = document.getElementsByName("term")[0].value;
@@ -63,25 +85,26 @@ describe('breakDown function', () => {
     });
 });
 describe('evalAmort Function', () => {
-    test('should correctly generate amortization schedule', () => {
-        const principal = 80000;
-        const interestRate = 0.05;
-        const numPayments = 360;
-        const result = evalAmort(principal, interestRate, numPayments);
+    test('should correctly generate amortization schedule & chart.js', () => {
+        //local var pulls values from document mock object 
+        var principal = document.getElementsByName("principal")[0].value - document.getElementsByName("down")[0].value; //principal for this function refers to total - downpayment
+        var interestRate = document.getElementsByName("interest")[0].value / 100;
+        var numPayments = document.getElementsByName("term")[0].value;
+        const result = evalAmort(principal, interestRate, numPayments); //draw chart is called in evalAmort function if chart is not successful, evalAmort fails, therefore this unit test tests both at once.
         //test row 1
-        expect(result).toContain("<td>1</td>");
-        expect(result).toContain("$80,000");
-        expect(result).toContain("$333.23");
-        expect(result).toContain("$96.12");
+        expect(result).toContain("<td>1</td>");//row1col1
+        expect(result).toContain("$80,000");//row1col2
+        expect(result).toContain("$333.33");//row1col3
+        expect(result).toContain("$96.12");//row1col4
         //test row 72
-        expect(result).toContain("<td>72</td>");
-        expect(result).toContain("$72,077.38");
-        expect(result).toContain("$300.32");
-        expect(result).toContain("$129.13");
+        expect(result).toContain("<td>72</td>");//row72col1
+        expect(result).toContain("$72,077.38");//row72col2
+        expect(result).toContain("$300.32");//row72col3
+        expect(result).toContain("$129.13");//row72col4
         //test row 360
-        expect(result).toContain("<td>360</td>");
-        expect(result).toContain("$427.68");
-        expect(result).toContain("$1.78");
-        expect(result).toContain("$427.68");
+        expect(result).toContain("<td>360</td>");//row360col1
+        expect(result).toContain("$427.68");//row360col2
+        expect(result).toContain("$1.78");//row360col3
+        expect(result).toContain("$427.68");//rowcol4
     });
 });
