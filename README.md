@@ -34,7 +34,7 @@ Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
 
    User-Friendly tool which takes in principal, interest rate and term, generating break down of interest in a schedule.
    This tool helps stuff like Auto Loans, Personal Loans, etc...
-4) [Compound Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/compoundInterestCalc2.html) ([basic](https://www.discover.com/online-banking/cd-lng-02/?cmpgnid=ps-bk-ggl-nonchck-agl-ggl-pmax-test-pmx&src=S00001AON&van=Dbank&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYJFrwuQYpUSMPo3B6_HE-QI17n864Sqpme6_yZD7zYNBMilg93O6AaAqifEALw_wcB&gclsrc=aw.ds) v. [advanced](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator))
+4) [Compound Interest Calculator] version: 2.0(https://ephraaimwong.github.io/FinanceCalc/compoundInterestCalc2.html) ([basic](https://www.discover.com/online-banking/cd-lng-02/?cmpgnid=ps-bk-ggl-nonchck-agl-ggl-pmax-test-pmx&src=S00001AON&van=Dbank&gad_source=1&gclid=Cj0KCQjwz7C2BhDkARIsAA_SZKYJFrwuQYpUSMPo3B6_HE-QI17n864Sqpme6_yZD7zYNBMilg93O6AaAqifEALw_wcB&gclsrc=aw.ds) v. [advanced](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator))
 
    Contributor(s): Jarett, Ephraim
 
