@@ -1,5 +1,6 @@
 // Compound Interest Calculation
 
+
 function calculateCompoundInterest(principal, rate, time, timePeriod, compounds) {
   // Adjust time for months or days
   if (timePeriod === 'months') time /= 12;
@@ -75,5 +76,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Export functions for Jest testing
-module.exports = { calculateCompoundInterest, calculateLoanPayment };
+//module.exports = { calculateCompoundInterest, calculateLoanPayment };
 
