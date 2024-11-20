@@ -183,7 +183,21 @@ function calcDown() {
   let downPayment = (homePrice * (percent / 100)).toFixed(2);
   document.getElementById("downPayment-amount").value = downPayment;
 }
+function convert_xlsx() {
+  // document.getElementById('export-btn').addEventListener('click', )
+  var table = document.getElementById('amortTable');
+  var workbook = XLSX.utils.table_to_book(table);
+  var wbBString = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});
+  function convert_BString2Blob(s){
+    var buffer = new ArrayBuffer(s.length);
+    var view = new Uint8Array(buffer);
+    for (var i =0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+    return buffer;
+  }
 
+  
+  saveAs(new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}), 'amortizationSchedule.xlsx');
+}
 //call functions upon window load
 // window.onload=calcDown();
 window.onload = getInputs();
