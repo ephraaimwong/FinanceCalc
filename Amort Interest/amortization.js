@@ -5,7 +5,7 @@
 //var balance; //outstanding balance of principle
 //var principal;
 function validate(val) {
-  if (val == null || val == "") {
+  if (val == null || val == "" || val <=0) {
     return false;
   }
   return true;
@@ -198,7 +198,19 @@ function convert_xlsx() {
   blob = new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}); //create Blob from ArrayBuffer
   saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
 }
-//call functions upon window load
-// window.onload=calcDown();
-window.onload = getInputs();
-console.log(monthArr, interestArr, principalArr);
+//if statement allows jest to run
+if(typeof window !== 'undefined'){
+  window.onload = () =>{
+    getInputs();
+    console.log(monthArr, interestArr, principalArr);
+  }
+}
+
+module.exports={
+  validate,
+  overview,
+  breakDown,
+  evalAmort,
+  getInputs
+}
+
