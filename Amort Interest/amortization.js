@@ -186,17 +186,17 @@ function calcDown() {
 function convert_xlsx() {
   // document.getElementById('export-btn').addEventListener('click', )
   var table = document.getElementById('amortTable');
-  var workbook = XLSX.utils.table_to_book(table);
-  var wbBString = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});
-  function convert_BString2Blob(s){
-    var buffer = new ArrayBuffer(s.length);
-    var view = new Uint8Array(buffer);
-    for (var i =0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+  var workbook = XLSX.utils.table_to_book(table); //convert table to workbook (data format of spreadsheets)
+  var wbBString = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'}); //convert workbook to binarystring
+  function convert_BString2Blob(s){ //convert binary string to Blob
+    var buffer = new ArrayBuffer(s.length); // Blob requires an ArrayBuffer (low level block of mem)
+    var view = new Uint8Array(buffer); // Uint8Array is 8 bit unsigned integer array, manipulate buffer with this.
+    for (var i =0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //.charCodeAt() returns unicode val of char, & 0xFF is AND operation that ensures only lower 8 bits of unicode is used.
     return buffer;
   }
 
-  
-  saveAs(new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}), 'amortizationSchedule.xlsx');
+  blob = new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}); //create Blob from ArrayBuffer
+  saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
 }
 //call functions upon window load
 // window.onload=calcDown();
