@@ -1,0 +1,65 @@
+<!--Author: Jarrett Covington, Compound Interest Calculator
+The purpose of this file is to call upon the associated css
+and js file to display and execute the functions of the 
+compound interest calculator for the user.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest & Loan Calculator</title>
+  <link rel="stylesheet" href="compoundInCalc4.css">
+  <link rel="icon" type="image/ico" href="./Img/redmoneybowl-32.ico">
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/Landing Page/index.html">The Money Bowl</a></div>
+        <div class="nav-items">
+            <a href="/Landing Page/index.html">Home</a>
+            <a href="/">About</a>
+            <a href="/">Contact</a> 
+          </div> 
+    </nav>
+    
+  <div class="container">
+    <div class="calculator">
+    <h1>Financial Calculator</h1>
+    
+    <div id="error-message" style="display: none;"></div>
+
+    <!-- Toggle Switch for Mode Selection -->
+    <label for="mode-switch">Calculation Mode:</label>
+    <input type="checkbox" id="mode-switch">
+    <span id="toggle-description">Loan Payment</span>
+    
+    <!--form for creating calculator inputs-->
+    <form id="compoundInterestForm">
+      <label for="principal">Principal Amount ($):</label>
+      <input type="number" id="principal" placeholder="Enter principal amount" required>
+      <label for="rate">Interest Rate (%):</label>
+      <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
+      <label for="time">Time:</label>
+      <input type="number" id="time" placeholder="Enter time" required>
+      <label for="time-period">Time Period:</label>
+      <select id="time-period">
+        <option value="years">Years</option>
+        <option value="months">Months</option>
+        <option value="days">Days</option>
+      </select>
+      <label for="compounds" id="compoundsLabel">Number of Compounds Per Year:</label>
+      <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
+      <button type="button" id="calculate-button" onclick="calculate()">Calculate</button>
+    </form>
+    </div>
+  
+    <div class="scheduleTable" id="scheduleTable">
+        <div id="result"></div>
+        <div id="schedule"></div>
+      </div>    
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script> <!--CDN for DOMPurify-->
+  <script src="compoundInCalc4.js"></script> <!--js file for compound interest calculation-->
+</body>
+</html>

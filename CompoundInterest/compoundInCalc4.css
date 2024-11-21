@@ -1,12 +1,14 @@
-/*Author: Jarrett Covington, CSS style for Compound Interest Calculator layout*/
-/* Updated CSS for the toggle switch and layout */
+/*Author: Jarrett Covington, Compound Interest Calculator
+The purpose of this file is to provide the formatting for the
+compound interest calculator when displayed on the webpage*/
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-sizing: border-box;
   }
-  
+
   nav {
     height: 80px;
     background: #154c8a;
@@ -82,7 +84,7 @@
     width: 100%;
     border: 2px solid #000;
   }
-  
+ 
   table {
     width: 100%;
     border-collapse: collapse;
@@ -97,6 +99,29 @@
   
   th {
     background-color: #f4f4f9;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: right;
+  }
+  
+  th {
+    background-color: #f4f4f4;
   }
   
   tr:nth-child(even) {
@@ -196,5 +221,12 @@
   /* Adjust hidden input fields based on mode */
   #compounds {
     display: block;
+  }
+
+  #error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
   }
   

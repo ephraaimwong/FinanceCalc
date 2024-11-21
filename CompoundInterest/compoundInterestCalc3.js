@@ -1,6 +1,6 @@
-// Compound Interest Calculation
+// Author: Jarrett Covington, Compound Interest Calculation
 
-
+// Function for calculating compound interest based on months or days
 function calculateCompoundInterest(principal, rate, time, timePeriod, compounds) {
   // Adjust time for months or days
   if (timePeriod === 'months') time /= 12;
@@ -9,6 +9,9 @@ function calculateCompoundInterest(principal, rate, time, timePeriod, compounds)
   // Compound interest formula
   const totalAmount = principal * Math.pow(1 + rate / (compounds * 100), compounds * time);
   const interestEarned = totalAmount - principal;
+  
+  console.log("Calculated Compound Interest:", totalAmount);
+  console.log("Interest Earned:", interestEarned);
 
   return { totalAmount, interestEarned };
 }
@@ -37,6 +40,8 @@ function calculate() {
   const timePeriod = document.getElementById('time-period').value;
   const compounds = parseFloat(document.getElementById('compounds').value);
 
+
+  // Method to to check inputs and sanitize outputs for both loan payment and interest
   if (isNaN(principal) || isNaN(rate) || isNaN(time) || (isLoanMode && isNaN(compounds))) {
     alert('Please provide valid input values.');
     return;
@@ -45,7 +50,7 @@ function calculate() {
   // Prepare the result element
   const resultElement = document.getElementById('result');
   resultElement.innerHTML = ''; // Clear previous results
-
+  // if statement for loan payment
   if (isLoanMode) {
     // Loan Payment Mode
     const result = calculateLoanPayment(principal, rate, time);
@@ -56,13 +61,13 @@ function calculate() {
     `);
     resultElement.innerHTML = safeContent;
   } else {
-    // Compound Interest Mode
+    // Compound Interest Mode, else for compound interest calculation
     const result = calculateCompoundInterest(principal, rate, time, timePeriod, compounds);
     const safeContent = DOMPurify.sanitize(`
       <p>Total Amount: $${result.totalAmount.toFixed(2)}</p>
       <p>Interest Earned: $${result.interestEarned.toFixed(2)}</p>
     `);
-    resultElement.innerHTML = safeContent;
+    resultElement.innerHTML = safeContent; // filter ouputs through DOMPurify
   }
 
   // Display the result table
