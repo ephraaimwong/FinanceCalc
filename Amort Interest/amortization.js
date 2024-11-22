@@ -184,6 +184,10 @@ function calcDown() {
   document.getElementById("downPayment-amount").value = downPayment;
 }
 
+function calcDownPercent(){
+  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
+}
+
 //if statement allows jest to run
 if(typeof window !== 'undefined'){
   window.onload = () =>{
