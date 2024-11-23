@@ -144,9 +144,11 @@ function RPN(eqn){
             continue;
         }
 
-        if(i>0 && (isNumber(eqn[i-1])||eqn[i-1]===')')&& t==='('){
+        if(i>0 && (isNumber(eqn[i-1])||eqn[i-1]===')')&& (t==='(' || isNumber(t))){
             stack.push('*');
         }
+
+
         // determine what token is
         if (isNumber(t)) {
             type = TYPE_CONST;
