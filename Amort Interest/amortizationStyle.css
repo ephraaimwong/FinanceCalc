@@ -18,22 +18,20 @@ body {
   /* Top-Right Icons */
   .top-icons {
     position: fixed; /* Fixed position at the top */
-    top: 0; /* Align to the top of the viewport */
-    left: 0; /* Start from the left edge */
-    right: 0; /* Extend to the right edge */
+    top: 15px; /* Align to the top of the viewport */
+    right: 15px; /* Extend to the right edge */
     display: flex; /* Flexbox for alignment */
     justify-content: flex-end; /* Align buttons to the right */
     align-items: center; /* Vertically center buttons */
-    gap: 1.2rem; /* Space between buttons */
-    padding: 10px 20px; /* Add padding for aesthetics */
+    gap: 10px; /* Space between buttons */
     background-color: transparent;
     z-index: 1000; /* Keep above other elements */
 }
 
 .icon-button {
-    width: 50px; 
-    height: 50px; /* Reduced height */
-    font-size: 24px; /* Smaller font size */
+    width: 70px; 
+    height: 70px; /* Reduced height */
+    font-size: 32px; /* Smaller font size */
     border: 2px solid #00509e; /* Blue outline */
     background-color: white; /* White background */
     color: #00509e; /* Blue icon color */

@@ -7,7 +7,70 @@
   <link rel="stylesheet" href="compoundInterestCalc2.css">
   <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
 </head>
-<body>
+<body><!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="compoundInterestCalc2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
+  </head>
+  <body>
+    <!-- Top-Right Icons -->
+    <div class="top-icons">
+      <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
+        🏠
+      </button>
+      <button class="icon-button contact" onclick="window.location.href='#contact-section'">
+        ✉️
+      </button>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="content">
+      <div class="container-box">
+        <!-- Subtitle -->
+        <div class="subtitle">
+          <h2>Compound<br>Interest Calculator</h2>
+          <!-- Result Display -->
+          <div id="result" class="result-display"></div>
+        </div>
+  
+        <!-- Calculator Box -->
+        <div class="calculator-container">
+          <form id="compoundInterestForm">
+            <label for="principal">Principal Amount ($):</label>
+            <input type="number" id="principal" placeholder="Enter principal amount" required>
+  
+            <label for="rate">Interest Rate (%):</label>
+            <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
+  
+            <label for="time">Time:</label>
+            <input type="number" id="time" placeholder="Enter time" required>
+  
+            <label for="time-period">Time Period:</label>
+            <select id="time-period"> required>
+              <option value="" disabled selected>Choose Time Period</option>
+              <option value="years">Years</option>
+              <option value="months">Months</option>
+              <option value="days">Days</option>
+            </select>
+  
+            <label for="compounds">Number of Compounds Per Year:</label>
+            <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
+  
+            <button type="button" onclick="calculateCompoundInterest()">Calculate Interest</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <script src="compoundInterestCalc2.js"></script>
+  </body>
+  
     <nav>
         <div class="logo">
           <img src="../Img/redmoneybowl" alt="project logo">

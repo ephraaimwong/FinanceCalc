@@ -1,124 +1,188 @@
-/*updated for new compound interest calculator 07Sep2024 Jarrett C.*/
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    box-sizing: border-box;
-  }
-  
-  nav {
-    height: 80px;
-    background: #154c8a;
-    ;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem calc((100vw - 1300px)/2);
-  }
-  .logo{
-    color: aliceblue;
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0 2rem;
-  }
-  .logo img{
-    height:80px;
-    margin-right: 5px;
-}
-  
-  nav a {
-    text-decoration: none;
-    color: black;
-    padding: 0 1.5rem;
-  }
-  
-  nav a:hover{
-    color: purple;
-  }
-
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #dbdbe7;
-    margin: 0;
-    padding: 20px;
-  }
+  font-family: 'Crimson Text', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f6f0;
+  color:#00509e;
+  font-size: 22px;
+}
+
+/* Top-Right Icons */
+.top-icons {
+  position: fixed; /* Stick to the top-right corner */
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  z-index: 1000;
+}
+
+.icon-button {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #00509e; /* Blue outline */
+  background-color: white; /* White background */
+  color: #00509e; /* Blue icon color */
+  border-radius: 50%; /* Circular buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: #00509e; /* Blue background on hover */
+  color: white; /* White icon color */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.icon-button:active {
+  background-color: #00509e; /* Darker blue on click */
+  transform: scale(1); /* Reset zoom on click */
+}
+
+/* Main Content */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Outer Container Box */
+.container-box {
+  width: 60%;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15); /* Drop shadow for 3D effect */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Aligns subtitle and calculator */
+  align-items: center;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 22px;
+  color: #00509e;
+  text-align: center;
+  width: 65%;
+  font-family: 'Cutive', serif;
+  margin-bottom: 10%;
+  border-radius: 17px;
+}
+
+.subtitle h2 {
+  margin: 0;
+  font-family: 'Cutive', serif;
+  line-height: 1.5; /* Adjust this value to increase spacing */
+  text-align: center; /* Keep it centered */
   
-  .calculator-container {
-    max-width: 400px;
-    background-color: #1959ef;
-    padding: 20px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: black;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-    color: black;
-  }
-  
-  input[type="number"], select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #154c8a;
-    ;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #1959ef;
-  }
-  
-  #result {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  #schedule {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table, th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f4f4f9;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
+}
+
+/* Calculator Box */
+.calculator-container {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 55%;
+}
+
+.calculator-container form input, .calculator-container form select {
+  width: 85%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 14px;
+}
+.calculator-container button {
+  display: block; /* Ensures proper centering */
+  margin: 20px auto; /* Center-aligns horizontally */
+  width: 45%; /* Adjust width as needed */
+  padding: 10px;
+  background-color: #154c8a;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-container button:hover {
+  background-color: #0d37a0; /* Change color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for a popping effect */
+}
+
+.calculator-container button:active {
+  transform: scale(1); /* Reset zoom on click */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow when clicked */
+}
+
+
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #00509e;
+}
+
+
+/* Result Display */
+.result-display {
+  position: relative;
+  top: 200px;
+  width: 90%;
+  margin-bottom: 1px;
+  font-size: 18px;
+  color: #00509e; /* Chase blue */
+  text-align: center;
+  /*font-weight: bold;*/
+  padding: 10px;
+  background-color: transparent; /* Subtle background for visibility */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-family: 'Crimson Text', serif;
+}
+
+#time-period {
+  width: 90%; /* Set the width to 90% */
+  padding: 10px; /* Optional: Adjust padding for a better look */
+  font-size: 16px; /* Maintain readability */
+  border: 1px solid #ccc; /* Keep the border consistent with other inputs */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 20px; /* Add space below the dropdown */
+  background-color: tranparent; /* Subtle background */
+}
+
+
+input::placeholder {
+  color: rgb(165, 164, 164); /* Change the placeholder text colour to grey */
+  font-style: italic; /* Optional: Add italics for better readability */
+  opacity: 1; /* Ensure full opacity for better visibility */
+}
+
+
+
+select {
+  color: grey; /* Default text color for selected options */
+}
+
+select option {
+  color: grey; /* Default color for all options */
+}
+
+select option[value=""] {
+  color: grey; /* Specifically style the placeholder option */
+  font-style: italic; /* Optional: Italicize the placeholder */
+}

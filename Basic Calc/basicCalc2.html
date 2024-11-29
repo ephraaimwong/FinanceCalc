@@ -9,16 +9,16 @@
   <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
 </head>
 <body>
-  <!-- Landing Page Navbar -->
-  <nav class="navbar">
-    <span class="nav-item">Other</span>
-    <span class="nav-item">About</span>
-    <span class="nav-item">Idk</span>
-    <button class="nav-button support">Support</button>
-    <button class="nav-button contact">Contact</button>
-  </nav>
+  <!-- Top-Right Icons -->
+  <div class="top-icons">
+    <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
+      🏠
+    </button>
+    <button class="icon-button contact" onclick="window.location.href='#contact-section'">
+      ✉️
+    </button>
+  </div>
  
-
   <!-- Main Content -->
   <div class="content">
     <div class="container-box">
@@ -37,11 +37,7 @@
               <div class="button-row">
                 <input type="button" value="<-" onclick="input.value = input.value.toString().slice(0, -1)" class="operator backspace">
                 <input type="button" value="CLR" onclick="display.value=''" class="operator clr">
-               
-            </div>
-            <div>
-              
-              
+              </div>
             </div>
             <div>
               <input type="button" value="7" onclick="input.value +='7'">
