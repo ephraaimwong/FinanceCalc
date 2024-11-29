@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Money Bowl</title>
+    <link rel="stylesheet" href="amortizationStyle.css">
+    <link rel="icon" href="../Img/redmoneybowl" type="image/ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- for chart.js -->
+
+</head>
+
+<body>
+      <!-- Top-Right Icons -->
+  <div class="top-icons">
+    <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
+      🏠
+    </button>
+    <button class="icon-button contact" onclick="window.location.href='#contact-section'">
+      ✉️
+    </button>
+  </div>
+    <!-- Main container for the whole app - This will contain all the calculations -->
+    <div class="container"> 
+        <div class="calculatorBox">
+            <h2> Mortgage Calculator</h2>
+                <label for="homePrice" class="formLabel-left">Principal Amount</label>
+
+                    <div class="inputBoxIcon">
+                        <span class="inputBoxIcon-dollar">$</span>
+                        <input type="text" id="regBox" class="formInput" name="principal"
+                            placeholder="Enter Principal Amount" value="425000" oninput="calcDown()" required>
+                    </div>
+                    <label for="downPayment" class="formLabel-left">Down Payment</label>
+                    <div class="inputBoxIcon">
+                        <span class="inputBoxIcon-dollar">$</span>
+                        <div class="downPayment-amount">
+                            <input type="text" id="downPayment-amount" class="formInput" name="down"
+                                placeholder="100,000" value="85000" required>
+                        </div>
+
+                        <div class="downPayment-percent">
+                            <input type="text" id="downPayment-percent" class="formInput" placeholder="20"
+                                value="20" oninput="calcDown()">
+                            <!-- whenever user input, calcDown() is called to autofill downpayment -->
+                        </div>
+                        <span class="inputBoxIcon-percent">%</span>
+                    </div>
+
+
+                        <label for="term" class="formLabel-left">Loan Term</label>
+                        <div class="regBox">
+                            <select id="regBox" class="formInput" name="term" required>
+                                <option value="30">30 years</option>
+                                <option value="25">25 years</option>
+                                <option value="20">20 years</option>
+                                <option value="15">15 years</option>
+                                <option value="10">10 years</option>
+                                <option value="5">5 years</option>
+                            </select>
+                        </div>
+                        <label for="interest" class="formLabel-left">Interest Rate</label>
+    
+                        <div class="inputBoxIcon">
+                            <span class="inputBoxIcon-percent">%</span>
+    
+                            <input type="text" id="regBox" class="formInput" name="interest" placeholder="6.12345%"
+                                value="6.25" required>
+    
+                        </div>                      
+                <!-- Evaluate button -->
+                <input type="button" id="eval" value="Calculate" onclick="getInputs()"
+                    class="evalButton">
+                </div> <!-- End of calculatorBox-->
+                
+
+            <div class="amortSchedule-container">
+
+                <div class="summary-breakdown">
+                    <div>
+                        <!-- Loan summary label and table -->
+                        <div class="table-head" id="amortHead"></div>
+                    </div>
+                    <div>
+                        <div class="table-head" id="amortInterest"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="table-container" id="amortTable"></div>
+                    <canvas id="amortChart"></canvas>
+                </div>
+                
+                <!-- <div>
+                    <label for="graph">Graph</label>
+                    <canvas id="amortChart"></canvas>
+                </div> -->
+
+    </div>
+
+
+    <script src="amortization.js"></script>
+</body>
+
+</html>

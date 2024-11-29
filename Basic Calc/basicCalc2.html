@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" href="styleBasicCalc2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
+</head>
+<body>
+  <!-- Landing Page Navbar -->
+  <nav class="navbar">
+    <span class="nav-item">Other</span>
+    <span class="nav-item">About</span>
+    <span class="nav-item">Idk</span>
+    <button class="nav-button support">Support</button>
+    <button class="nav-button contact">Contact</button>
+  </nav>
+ 
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container-box">
+      <!-- Subtitle -->
+      <div class="subtitle">
+        <h2>Basic<br>Calculator</h2>
+      </div>
+
+      <!-- Calculator Box -->
+      <div class="calculator-container">
+        <div class="calculator-box">
+          <form>
+            <div>
+              <input type="text" id="input" placeholder="Enter Expression" value=""/>
+              <input type="text" id="display" readonly placeholder="Result"/>
+              <div class="button-row">
+                <input type="button" value="<-" onclick="input.value = input.value.toString().slice(0, -1)" class="operator backspace">
+                <input type="button" value="CLR" onclick="display.value=''" class="operator clr">
+               
+            </div>
+            <div>
+              
+              
+            </div>
+            <div>
+              <input type="button" value="7" onclick="input.value +='7'">
+              <input type="button" value="8" onclick="input.value +='8'">
+              <input type="button" value="9" onclick="input.value +='9'">
+              <input type="button" value="(" onclick="input.value +='('" class="operator">
+              <input type="button" value=")" onclick="input.value +=')'" class="operator">
+            </div>
+            <div>
+              <input type="button" value="4" onclick="input.value +='4'">
+              <input type="button" value="5" onclick="input.value +='5'">
+              <input type="button" value="6" onclick="input.value +='6'">
+              <input type="button" value="*" onclick="input.value +='*'" class="operator">
+              <input type="button" value="/" onclick="input.value +='/'" class="operator">
+            </div>
+            <div>
+              <input type="button" value="1" onclick="input.value +='1'">
+              <input type="button" value="2" onclick="input.value +='2'">
+              <input type="button" value="3" onclick="input.value +='3'">
+              <input type="button" value="+" onclick="input.value +='+'" class="operator">
+              <input type="button" value="-" onclick="input.value +='-'" class="operator">
+            </div>
+            <div>
+              <input type="button" value="0" onclick="input.value +='0'">
+              <input type="button" value="." onclick="input.value +='.'" class="operator">
+              <input type="button" value="^" onclick="input.value +='^'" class="operator">
+              <input type="button" id="btn" value="=" onclick="evaluateExpression()" class="equal">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="ShuntingYardAlgo.js"></script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF; /* White background */
+    margin: 0;
+    padding: 0;
+}
+
+ /* Top-Right Icons */
+.top-icons {
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Start from the left edge */
+    right: 0; /* Extend to the right edge */
+    display: flex; /* Flexbox for alignment */
+    justify-content: flex-end; /* Align buttons to the right */
+    align-items: center; /* Vertically center buttons */
+    gap: 1.2rem; /* Space between buttons */
+    padding: 10px 20px; /* Add padding for aesthetics */
+    background-color: transparent;
+    z-index: 1000; /* Keep above other elements */
+}
+
+.icon-button {
+    width: 50px; 
+    height: 50px; /* Reduced height */
+    font-size: 24px; /* Smaller font size */
+    border: 2px solid #00509e; /* Blue outline */
+    background-color: white; /* White background */
+    color: #00509e; /* Blue icon color */
+    border-radius: 50%; /* Circular buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-button:hover {
+    background-color: #00509e; /* Blue background on hover */
+    color: white; /* White icon color */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.container {
+/*    display: flex;*/
+    width: 40.625rem; 
+    height: 25.313;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #fff; /* Light grey line */
+    background-color: #fff; /* Light grey background */
+}
+
+h1 {
+    color: #0033A0; /* Chase Blue for heading */
+    margin-bottom: 20px;
+    text-align: center; /* Aligns the text to the left */
+    margin-left: 20px; /* Adds a bit of space from the left side */
+    font-size: 20px;
+    font-family: 'Crimson Text', serif; 
+}
+
+.input-container {
+    margin-bottom: 18px;
+}
+
+label {
+    font-family: 'Crimson Text', serif; 
+    display: block;
+    margin-bottom: 0.1rem;
+    font-size: 0.9rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    border: 1px solid #d1b9b9;
+    height: 1.9rem;
+    padding-left: 0.7rem;
+    border-radius: .6rem;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); /* Inward shadow for 3D effect */
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #F9F9F9; /* Light background color for better visibility */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+input[type="number"]:focus {
+    font-family: 'Crimson Text', serif; 
+    font-size: 0.9rem;
+    outline: none;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.3); /* Darker shadow on focus for emphasis */
+    border-color: #0033A0; /* Chase Blue border color on focus */
+}
+
+
+
+/* Hover effect for calculate button */
+#calculate-button:hover {
+    background-color: #154c8a; /* Light Blue for hover effect */
+}
+
+/* Hover effect for period buttons */
+.period-button:hover {
+    background-color: #1048b8; /* Darker Blue for hover effect */
+    color: #FFFFFF; /* White text color */
+}
+
+
+button:hover {
+    background-color: hsl(126, 72%, 44%); /* Light Blue for hover effect */
+}
+
+.period-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.period-buttons {
+    display: flex;
+    gap: 1px;
+    margin-bottom: 5px;
+}
+
+.period-button {
+    background-color: #FFFFFF; /* White background for buttons */
+    color: #0033A0; /* Chase Blue text color */
+    border: 1px solid #0033A0; /* Chase Blue border */
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.period-button.selected {
+    background-color: #0033A0; /* Chase Blue when selected */
+    color: #FFFFFF; /* White text color when selected */
+}
+
+.result-container {
+    margin-top: -45px; /* moves the result container up by reducing the margin */
+    padding: 10px; /*padding for better readability */
+    background-color: #f0f0f0; /*Background color for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* centers the text inside the result container */
+    position: relative; /* Ensure it's positioned relative to its normal flow */
+    z-index: 1; /* Ensure it's above other elements if necessary */
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #ffffff; /* Light grey background for the bar */
+    border-radius: 5px;
+    margin-top: 50px;
+    height: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #0033A0; /* Chase Blue */
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+
+.fancy-line {
+    width: 1px; /* Width of the fancy line */
+    background: linear-gradient(to bottom, transparent 15%, rgb(223, 198, 198) 20%, /*transparent 50%,*/ rgb(215, 204, 204) 15%); /* Bulging effect */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/*BUTTON CHANGE*/
+/* Styles for the Period Selection Section */
+.period-container {
+    display: flex;
+    align-items: left;
+    margin-bottom: 20px;
+}
+
+/* Styles for Period Labels and Radio Buttons */
+.period-label {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px; /* Space between radio buttons */
+}
+
+/* Radio Button Styling */
+.period-label input[type="radio"] {
+    appearance: none; /* Remove default radio button styling */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0033A0; /* Chase Blue border */
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+}
+
+/* Checked Radio Button Style */
+.period-label input[type="radio"]:checked::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #0033A0; /* Chase Blue */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Period Text Styling */
+.period-text {
+    color: #0033A0; /* Chase Blue text */
+    font-size: 16px;
+}
+
+/* Style for the floating title */
+.main-box {
+    position: relative;
+} 
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90vw;
+    }
+
+    .calculator-box, .image-box {
+        width: 100%;
+    }
+}
+
+
+.period-container {
+    display: flex;
+    align-items: left;
+    margin-bottom: 20px;
+}
+
+.period-label {
+    margin-right: 20px; /* Space between radio buttons */
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+    color: #123580;
+    
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Space between radio and label */
+    accent-color: #0073CF
+}
+
+/* Interest Type Radio Buttons (side by side) */
+.interest-type {
+    display: flex; /* Make the radio buttons and labels appear side by side */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add space between the buttons */
+    margin: 15px 0;
+}
+
+
+.interest-type label {
+    display: flex;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-top: 5px;
+    gap: 12px;
+}
+
+/* Period Type Radio Buttons (optional, if you want them side by side too) */
+.period-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add space between the buttons */
+}
+
+
+/* General radio group styling */
+.radio-group {
+    display: flex; /* Ensures horizontal layout */
+    justify-content: left; /* Center the radio buttons */
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+    margin: 5px 5px;
+}
+
+.radio-label {
+    font-size: 12px;
+    color: #0033A0; /* Chase blue */
+    display: flex;
+    align-items: LEFT;
+    margin-right: 10px;
+    margin-top: 5px;
+    gap: 12px;
+}
+
+/* Increases the size of the radio button and add shadow */
+.radio-label input[type="radio"] {
+    margin-right: 5px;
+    appearance: none;
+    width: 20px;  /* Larger width */
+    height: 20px; /* Larger height */
+    border: 2px solid #99a2b4; /* Chase blue border */
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #ffffff; /* White background */
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for outer circle (3D effect) */
+}
+
+/* When selected, adds shadow inside the radio button hole */
+.radio-label input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;  /* Larger inner dot */
+    height: 10px; /* Larger inner dot */
+    background-color: #2978b8; /* Chase blue inner dot */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3); /* Shadow inside the inner dot */
+}
+
+/* Hover effect for a larger button */
+.radio-label:hover input[type="radio"] {
+    background-color: #e0f0ff;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Outer shadow effect */
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px; /* Adjust the value for more or less curvature */
+    overflow: hidden; /* Prevents the overflow of the borders */
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+
+/* Daniel's CSS */
+
+.main-container {
+    display: flex;           /* Enables flexbox layout */
+    gap: 20px;               /* 20px space between the two containers */
+    justify-content: center; /* Centers the containers horizontally */
+    align-items: center;
+    width: 40.625rem; 
+    height: 25.313rem;
+    border-radius: 1.8rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-left: 1rem;
+    margin-top: 1rem;
+         /* Aligns containers vertically in the middle (optional) */
+    max-width: 40.625rem; /* Optional: restrict maximum width */
+    padding: 20px; /* Add some padding inside the main container */
+    overflow: hidden; /* Ensure content stays within the container */
+    background-color: #f9f9f9; /* Optional: background for visual clarity */
+}
+
+/* Remove the scrolling arrow */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.floating-title{
+  margin-top: 5rem;
+  position: relative;
+  padding: 1rem;
+}
+
+/* Style the main titl and image box */
+
+
+/* Image container - ensures text and image are stacked vertically */
+.main-container {
+    display: flex;           /* Enables flexbox layout */
+    justify-content: space-between; /* Ensure space between the image and calculator */
+    gap: 20px;               /* 20px space between the two containers */
+    align-items: flex-start; /* Align items at the top */
+    padding: 20px;           /* Padding inside the main container */
+    width: 40%;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Optional background for clarity */
+}
+
+/* Image container - ensures text and image are stacked vertically */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 42%; /* Adjusts width of the image container */
+}
+
+/* Floating title above the image with padding */
+.floating-title {
+  margin-top: 0;
+    color: #0033A0;      /* Text color */
+    font-size: 24px;
+    font-family: 'Crimson Text', serif;
+    padding: 10px;       /* Padding for breathing room */
+    box-sizing: border-box;
+    max-width: 100%;     /* Ensure title stays within container */
+}
+
+/* Make image responsive and contained within the main container */
+.image-container img {
+    max-width: 100%; /* Image scales to fit within its container */
+    height: auto;    /* Maintain aspect ratio */
+    margin-bottom: 4rem;
+}
+
+.calculator-box {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 52%; /* Adjust to desired width */
+    height: 100%;
+    padding: 20px; /* Add padding if necessary */
+}
+
+.button-container {
+    display: flex; /* Enable flexbox for the button container */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Optional: add space above the button */
+}
+
+/* Style for the Calculate Button */
+#calculate-button {
+    background-color: #00509e; /* Chase Blue */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    width: 10rem;
+    padding: .5rem 0;
+    cursor: pointer;
+    border-radius: .8rem;
+    font-size: 16px;
+}
+
+
+/* Style for separator line */
+
+.vertical-line {
+    width: 0.2rem;           /* Width of the line */
+    height: 100%;        /* Height of the line */
+    border-radius: 1rem;
+    background-color: black; /* Color of the line */
+    margin: 0 auto;       /* Center it horizontally if needed */
+    border: 1px solid #d1b9b9;
+    background-color: #F9F9F9;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Style for the top container */
+
+.top-container {
+    display: flex;           /* Enables flexbox layout */
+    flex-direction: row;     /* Ensures children are aligned in a row (default behavior) */
+    justify-content: space-between; /* Distributes space between the items */
+    align-items: center;     /* Vertically centers the items */
+    width: 98%;
+    margin-top: 4.5rem; 
+    overflow: hidden;        /* Prevents overflow */
+}
+
+/* Style for the table */
+.result-table {
+    width: 30% ;
+    max-height: 24rem; 
+    overflow-y: scroll;
+    height: 27rem;     /* Set the maximum height of the scrollable area */
+    overflow: hidden;       /* Hide overflow on the container */
+    padding: 0.3rem;          /* Optional: add some padding */
+    background-color: #fff; /* Optional: background color */
+}
+
+#dynamicTable {
+    width: 100%;           /* Set a fixed width for the table */
+    border-collapse: collapse; /* Ensures borders don't double up */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: none;
+    font-family: 'Crimson Text', serif; 
+    box-shadow: 0 0 0 0.1rem #154CAA;
+    table-layout: auto;     /* Allow columns to auto-scale */
+    border: none;           /* Make the outer border invisible */
+}
+
+#dynamicTable thead th {
+  margin: 0;
+  background-color: #154CAA;
+}
+/* Set tbody to be scrollable */
+tbody {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: block;         /* Make tbody a block element */
+    max-height: 20rem;     /* Set maximum height for scrolling */
+    overflow-y: auto;      /* Enables vertical scrolling */
+}
+
+thead {
+  color: white;
+}
+
+thead, tbody tr {
+    display: table;         /* Ensure table structure is maintained */
+    width: 100%;           /* Ensure width is 100% of the table */
+}
+
+.dynamicTable th, .dynamicTable td {
+    font-family: 'Crimson Text', serif; 
+    text-align: center;       /* Align text */
+    white-space: nowrap;    /* Prevent text from wrapping */
+}
+
+/* Ensuring th is displayed correctly */
+#dynamicTable th {
+    background-color: #e0e0e0; /* Header background color */
+    position: sticky;         /* Stick to the top */
+    top: 0;                   /* Sticks to the top of the table */
+    z-index: 10;              /* Keep header above other content */
+}
+
+.dynamicTable tr:hover {
+    background-color: #f1f1f1; /* Optional: Hover effect */
+}
+
+/* Making the scrollbar invisible */
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.result-table::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.result-table {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.donut-container{
+  width: 20%;
+  margin: 0;
+  height: 22rem;;
+  padding: 1rem;
+  border: 0.15rem solid #154CAA;
+  border-radius: 0.6rem;
+}
