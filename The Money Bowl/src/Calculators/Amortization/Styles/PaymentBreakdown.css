@@ -1,0 +1,20 @@
+/* PaymentBreakdown.css */
+
+.payment-breakdown {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #154c8a;
+    border-radius: 8px;
+    background-color: #f8f6f0;
+}
+
+.payment-breakdown h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.payment-breakdown p {
+    font-size: 18px;
+    margin: 5px 0;
+}
