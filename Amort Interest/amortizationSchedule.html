@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Money Bowl</title>
     <link rel="stylesheet" href="amortizationStyle.css">
-    <link rel="icon" href="../Img/redmoneybowl" type="image/ico">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- for chart.js -->
+
+    <link rel="icon" href="./Img/redmoneybowl-32.ico" type="image/ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script><!-- for Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script><!-- Sheet.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script> <!--FileSaver.js-->
+
+
+
 
 </head>
 
@@ -83,7 +88,7 @@
                             <span class="inputBoxIcon-dollar">$</span>
                             <div class="downPayment-amount">
                                 <input type="text" id="downPayment-amount" class="formInput" name="down"
-                                    placeholder="100,000" value="85000" required>
+                                    placeholder="100,000" value="85000" required oninput="calcDownPercent()">
                             </div>
 
                             <div class="downPayment-percent">
@@ -135,7 +140,9 @@
 
                 <div>
                     <label for="schedule">Amortization Schedule</label>
-                    <div class="table-container" id="amortTable"></div>
+                    <div class="table-container" id="amortTable">
+                    </div>
+                    <input type="button" id="export-btn" value="Export to Excel" onclick="convert_xlsx()">
                 </div>
                 <div>
                     <label for="graph">Graph</label>
