@@ -1,5 +1,5 @@
-/*Author: Jarrett Covington, Compound Interest Calculator
-The purpose of this file is to provide the formatting for the
+/*Author: Jarrett Covington, Date: 30 Nov 2024, Compound Interest Calculator 
+style file. The purpose of this file is to provide the formatting for the
 compound interest calculator when displayed on the webpage*/
 
 * {
@@ -16,6 +16,7 @@ compound interest calculator when displayed on the webpage*/
     justify-content: space-between;
     align-items: center;
     padding: 0rem calc((100vw - 1300px) / 2);
+    border-radius: 15px;
   }
   
   .logo {
@@ -41,9 +42,11 @@ compound interest calculator when displayed on the webpage*/
     background-color: #dbdbe7;
     margin: 0;
     padding: 20px;
+    border-radius: 15px;
   }
   
   .container {
+    margin-top: 20px;
     width: 100%;
     min-height: 100vh;
     background: #F8F6F0;
@@ -52,82 +55,65 @@ compound interest calculator when displayed on the webpage*/
     justify-content: space-evenly;
     flex-direction: row;
     overflow-y: auto;
+    border-radius: 15px;
   }
   
   .calculator {
     background: #317dd4;
     padding: 20px;
     border-radius: 25px;
+    border: 2px black;
   }
   
   .scheduleTable {
     display: none;
-    width: 30%;
-    border: 2px solid green;
-    border-radius: 25px;
-    min-height: 50vh;
+    width: 50%; 
+    max-width: 400px; 
+    border: 2px solid black;
+    border-radius: 10px; 
+    min-height: auto; 
     background-color: #317dd4;
-  }
-  
-  #result {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  #schedule {
-    text-align: center;
-    max-height: 45vh;
-    overflow-y: auto;
-    width: 100%;
-    border: 2px solid #000;
-  }
- 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border-color: #000;
-  }
-  
-  table, th, td {
-    border: 1px solid #ccc;
-    padding: 7px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f4f4f9;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    font-size: 14px; 
   }
-  
-  table, th, td {
-    border: 1px solid #ccc;
-  }
-  
+
   th, td {
-    padding: 8px;
-    text-align: right;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
   }
-  
+
   th {
-    background-color: #f4f4f4;
+    background-color: #f4f4f9;
+    font-size: 14px; 
+    font-weight: bold;
   }
-  
+
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
+  #result {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
   h1 {
     text-align: center;
     color: black;
@@ -218,15 +204,38 @@ compound interest calculator when displayed on the webpage*/
     border-radius: 50%;
   }
   
-  /* Adjust hidden input fields based on mode */
   #compounds {
     display: block;
   }
 
+  /* Error Message */
   #error-message {
     color: red;
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
   }
-  
+
+.about-section {
+  margin-top: 20px;
+  background: #f8f6f0; 
+  padding: 20px; 
+  border-radius: 15px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  font-size: 16px; 
+  line-height: 1.5; 
+}
+
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #154c8a;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 10px;
+}

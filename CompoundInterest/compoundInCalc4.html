@@ -1,4 +1,4 @@
-<!--Author: Jarrett Covington, Compound Interest Calculator
+<!--Author: Jarrett Covington, Date: 30 Nov 2024, Compound Interest Calculator
 The purpose of this file is to call upon the associated css
 and js file to display and execute the functions of the 
 compound interest calculator for the user.-->
@@ -21,45 +21,61 @@ compound interest calculator for the user.-->
             <a href="/">Contact</a> 
           </div> 
     </nav>
-    
-  <div class="container">
-    <div class="calculator">
-    <h1>Financial Calculator</h1>
-    
-    <div id="error-message" style="display: none;"></div>
 
-    <!-- Toggle Switch for Mode Selection -->
-    <label for="mode-switch">Calculation Mode:</label>
-    <input type="checkbox" id="mode-switch">
-    <span id="toggle-description">Loan Payment</span>
-    
-    <!--form for creating calculator inputs-->
-    <form id="compoundInterestForm">
-      <label for="principal">Principal Amount ($):</label>
-      <input type="number" id="principal" placeholder="Enter principal amount" required>
-      <label for="rate">Interest Rate (%):</label>
-      <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
-      <label for="time">Time:</label>
-      <input type="number" id="time" placeholder="Enter time" required>
-      <label for="time-period">Time Period:</label>
-      <select id="time-period">
-        <option value="years">Years</option>
-        <option value="months">Months</option>
-        <option value="days">Days</option>
-      </select>
-      <label for="compounds" id="compoundsLabel">Number of Compounds Per Year:</label>
-      <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
-      <button type="button" id="calculate-button" onclick="calculate()">Calculate</button>
-    </form>
-    </div>
-  
-    <div class="scheduleTable" id="scheduleTable">
-        <div id="result"></div>
-        <div id="schedule"></div>
-      </div>    
 
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script> <!--CDN for DOMPurify-->
-  <script src="compoundInCalc4.js"></script> <!--js file for compound interest calculation-->
+<div class="about-section">
+  <h2>About This Calculator</h2>
+  <p>
+  This financial calculator helps you perform two essential types of calculations: 
+  compound interest and loan payment schedules. Use the compound interest mode to estimate 
+  the growth of your investments or savings, and the loan mode to calculate your repayment 
+  schedule based on the loan amount, interest rate, and duration.
+    </p>
+  <p>
+  Switch between the two modes using the toggle above the form, and input the required 
+  values to get instant results.
+    </p>
+</div>   
+    
+<div class="container">
+  <div class="calculator">
+  <h1>Financial Calculator</h1>
+    
+  <div id="error-message" style="display: none;"></div>
+
+  <!-- Toggle Switch for Mode Selection -->
+  <label for="mode-switch">Calculation Mode:</label>
+  <input type="checkbox" id="mode-switch">
+  <span id="toggle-description">Loan Payment</span>
+    
+  <!--form for creating calculator inputs-->
+  <form id="compoundInterestForm">
+    <label for="principal">Principal Amount ($):</label>
+    <input type="number" id="principal" placeholder="Enter principal amount" required>
+    <label for="rate">Interest Rate (%):</label>
+    <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
+    <label for="time">Time:</label>
+    <input type="number" id="time" placeholder="Enter time" required>
+    <label for="time-period">Time Period:</label>
+    <select id="time-period">
+      <option value="years">Years</option>
+      <option value="months">Months</option>
+      <option value="days">Days</option>
+    </select>
+    <label for="compounds" id="compoundsLabel">Number of Compounds Per Year:</label>
+    <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
+    <button type="button" id="calculate-button" onclick="calculate()">Calculate</button>
+  </form>
+  </div>  
+
+  <!--class for generating output table-->
+  <div class="scheduleTable" id="scheduleTable">
+    <div id="result"></div>
+    <div id="schedule"></div>
+  </div>  
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script> <!--CDN for DOMPurify-->
+<script src="compoundInCalc4.js"></script> <!--js file for compound interest calculation-->
 </body>
 </html>
