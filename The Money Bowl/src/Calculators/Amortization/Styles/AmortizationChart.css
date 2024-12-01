@@ -1,0 +1,12 @@
+/* AmortizationChart.css */
+
+.amortization-chart {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.amortization-chart canvas {
+    display: block;
+    width: 100%;
+}

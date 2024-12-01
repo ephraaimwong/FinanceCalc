@@ -183,6 +183,12 @@ function calcDown() {
   let downPayment = (homePrice * (percent / 100)).toFixed(2);
   document.getElementById("downPayment-amount").value = downPayment;
 }
+
+function calcDownPercent(){
+  document.getElementById("downPayment-percent").value = "";
+  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
+}
+
 function convert_xlsx() {
   // document.getElementById('export-btn').addEventListener('click', )
   var table = document.getElementById('amortTable');
@@ -199,9 +205,7 @@ function convert_xlsx() {
   saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
 }
 
-function calcDownPercent(){
-  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
-}
+
 
 //if statement allows jest to run
 if(typeof window !== 'undefined'){

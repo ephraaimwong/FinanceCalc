@@ -30,43 +30,13 @@
         </div>
     </nav>
     <section id="mortgage-calculator">
-
-
-
         <div class="container"> <!--This is where grid starts-->
-            <!-- <div id="headline">
-                <h1>
-
-                    Mortgage Calculator
-
-                </h1>
-            </div> -->
             <div>
-                <h1>
-
-                    Mortgage Calculator
-
-                </h1>
+                <!-- empty to format  -->
             </div>
-
-            <!-- <div><p>empty</p></div> -->
             <div>
-                <p>empty</p>
+                <h1>Mortgage Calculator</h1>
             </div>
-            <!-- empty div to eat first box -->
-
-            <!-- <div>
-                <div class="infoBox">
-                    <p>box 1</p>
-                    <input type="button" id="infoBoxToggle" value="Payment Breakdown" onclick="" class="infoBoxToggle">
-                    <input type="button" id="infoBoxToggle" value="Amortization Schedule" onclick="" class="infoBoxToggle">
-                    <div class="nextBox">nextbox</div>
-                    <div class="nextBox">nextbox</div>
-                    
-                </div>
-            </div> -->
-
-
             <div class="nextBox">
                 <div class="calculator">
                     <div id="app" class="m-calculator">
@@ -129,25 +99,28 @@
                 </div>
             </div>
             <div class="amortSchedule-container">
-                <div>
-                    <label for="summary">Loan Summary</label>
-                    <div class="table-head" id="amortHead"></div>
-                </div>
-                <div>
-                    <label for="breakdown">Payment Breakdown</label>
-                    <div class="table-head" id="amortInterest"></div>
+                <div class="amortSnippet">
+                    <div class="amortSnippet-1">
+                        <label for="summary">Loan Summary</label>
+                        <div class="table-head" id="amortHead"></div>
+                    </div>
+                    <div class="AmortSnippet-2">
+                        <label for="breakdown">Payment Breakdown</label>
+                        <div class="table-head" id="amortInterest"></div>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="schedule">Amortization Schedule</label>
-                    <div class="table-container" id="amortTable">
-                    </div>
-                    <input type="button" id="export-btn" value="Export to Excel" onclick="convert_xlsx()">
-                </div>
                 <div>
                     <label for="graph">Graph</label>
                     <canvas id="amortChart"></canvas>
                 </div>
+                <div>
+                    <label for="schedule">Amortization Schedule <button id="export-btn" onclick="convert_xlsx()"> <img src="/Img/download-button-svgrepo-com (1).svg" style="height:25px; width:25px;"></button></label>
+                    <div class="table-container" id="amortTable">
+                    </div>
+                    
+                </div>
+
 
             </div>
 

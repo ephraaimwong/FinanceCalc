@@ -1,0 +1,60 @@
+/* src/components/Navbar.css */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navbar {
+    height: 80px;
+    background: #154c8a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem calc((100vw - 1300px)/2);
+    width: 100%;
+    border:2px solid #282c34;
+    position: sticky;
+  }
+  
+  .navbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: aliceblue;
+  }
+  
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+  }
+  
+  .navbar-links li {
+    margin: 0 1rem;
+  }
+  
+  .navbar-links a {
+    color: aliceblue;
+    text-decoration: none;
+  }
+  
+  .navbar-links a:hover {
+    color: #61dafb;
+  }
+  
+  .navbar-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #61dafb;
+    background-color: transparent;
+    border: 1px solid #61dafb;
+    cursor: pointer;
+  }
+  
+  .navbar-button:hover {
+    background-color: #61dafb;
+    color: #282c34;
+  }
