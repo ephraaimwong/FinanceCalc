@@ -32,7 +32,7 @@
     <section id="mortgage-calculator">
         <div class="container"> <!--This is where grid starts-->
             <div>
-                <!-- empty to format  -->
+                <!-- empty div to format  -->
             </div>
             <div>
                 <h1>Mortgage Calculator</h1>
@@ -40,8 +40,8 @@
             <div class="nextBox">
                 <div class="calculator">
                     <div id="app" class="m-calculator">
-                        <p>box 2</p>
-                        <label for="homePrice" class="formLabel-left">Principal Amount</label>
+                        <!-- <p>box 2</p> -->
+                        <label for="homePrice" class="formLabel-left" style="color: #f0ead6;">Principal Amount</label>
 
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-dollar">$</span>
@@ -52,7 +52,7 @@
 
 
 
-                        <label for="downPayment" class="formLabel-left">Down Payment</label>
+                        <label for="downPayment" class="formLabel-left" style="color: #f0ead6;">Down Payment</label>
                         <!-- <div class="splitBox"> -->
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-dollar">$</span>
@@ -70,7 +70,7 @@
                         </div>
 
                         <!-- </div> -->
-                        <label for="term" class="formLabel-left">Loan Term</label>
+                        <label for="term" class="formLabel-left" style="color: #f0ead6;">Loan Term</label>
                         <div class="regBox">
                             <select id="regBox" class="formInput" name="term" required>
                                 <option value="30">30 years</option>
@@ -81,7 +81,7 @@
                                 <option value="5">5 years</option>
                             </select>
                         </div>
-                        <label for="interest" class="formLabel-left">Interest Rate</label>
+                        <label for="interest" class="formLabel-left" style="color: #f0ead6;">Interest Rate</label>
 
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-percent">%</span>
@@ -90,12 +90,9 @@
                                 value="6.25" required>
 
                         </div>
-
-
-
-                    </div>
-                    <input type="button" id="eval" value="Calculate Your Mortgage!!!!" onclick="getInputs()"
+                        <input type="button" id="eval" value="Calculate Your Mortgage!!!!" onclick="getInputs()"
                         class="evalButton">
+                    </div>
                 </div>
             </div>
             <div class="amortSchedule-container">
