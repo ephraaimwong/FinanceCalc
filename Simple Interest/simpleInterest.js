@@ -18,10 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // const period_time = document.querySelector('input[name="period-time"]:checked').value;
 
         // // Ensure the inputs are valid numbers
-        if (isNaN(interest_rate) || isNaN(period) || isNaN(principal) || interest_rate <= 0 || period <= 0 || principal <= 0) {
-            container.innerHTML = "Please enter valid numbers for all fields.";
+        function isValidInput(rate, time, amount) {
+            return !isNaN(rate) && !isNaN(time) && !isNaN(amount) && rate > 0 && time > 0 && amount > 0;
+                }
+        // Replace the validation logic:
+        if (!isValidInput(interest_rate, period, principal)) {
+            container.innerHTML = "Please enter valid numbers for all fields. Values must be greater than 0.";
             return;
-        }
+            }
         else{
             total_interest = principal * (interest_rate / 100) * period
         }
