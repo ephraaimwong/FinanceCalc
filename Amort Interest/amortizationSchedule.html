@@ -7,7 +7,7 @@
     <title>The Money Bowl</title>
     <link rel="stylesheet" href="amortizationStyle.css">
 
-    <link rel="icon" href="./Img/redmoneybowl-32.ico" type="image/ico">
+    <link rel="icon" href="../Img/redmoneybowl-32.ico" type="image/ico">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script><!-- for Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script><!-- Sheet.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script> <!--FileSaver.js-->
@@ -30,48 +30,18 @@
         </div>
     </nav>
     <section id="mortgage-calculator">
-
-
-
         <div class="container"> <!--This is where grid starts-->
-            <!-- <div id="headline">
-                <h1>
-
-                    Mortgage Calculator
-
-                </h1>
-            </div> -->
             <div>
-                <h1>
-
-                    Mortgage Calculator
-
-                </h1>
+                <!-- empty div to format  -->
             </div>
-
-            <!-- <div><p>empty</p></div> -->
             <div>
-                <p>empty</p>
+                <h1>Mortgage Calculator</h1>
             </div>
-            <!-- empty div to eat first box -->
-
-            <!-- <div>
-                <div class="infoBox">
-                    <p>box 1</p>
-                    <input type="button" id="infoBoxToggle" value="Payment Breakdown" onclick="" class="infoBoxToggle">
-                    <input type="button" id="infoBoxToggle" value="Amortization Schedule" onclick="" class="infoBoxToggle">
-                    <div class="nextBox">nextbox</div>
-                    <div class="nextBox">nextbox</div>
-                    
-                </div>
-            </div> -->
-
-
             <div class="nextBox">
                 <div class="calculator">
                     <div id="app" class="m-calculator">
-                        <p>box 2</p>
-                        <label for="homePrice" class="formLabel-left">Principal Amount</label>
+                        <!-- <p>box 2</p> -->
+                        <label for="homePrice" class="formLabel-left" style="color: #f0ead6;">Principal Amount</label>
 
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-dollar">$</span>
@@ -82,7 +52,7 @@
 
 
 
-                        <label for="downPayment" class="formLabel-left">Down Payment</label>
+                        <label for="downPayment" class="formLabel-left" style="color: #f0ead6;">Down Payment</label>
                         <!-- <div class="splitBox"> -->
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-dollar">$</span>
@@ -100,7 +70,7 @@
                         </div>
 
                         <!-- </div> -->
-                        <label for="term" class="formLabel-left">Loan Term</label>
+                        <label for="term" class="formLabel-left" style="color: #f0ead6;">Loan Term</label>
                         <div class="regBox">
                             <select id="regBox" class="formInput" name="term" required>
                                 <option value="30">30 years</option>
@@ -111,7 +81,7 @@
                                 <option value="5">5 years</option>
                             </select>
                         </div>
-                        <label for="interest" class="formLabel-left">Interest Rate</label>
+                        <label for="interest" class="formLabel-left" style="color: #f0ead6;">Interest Rate</label>
 
                         <div class="inputBoxIcon">
                             <span class="inputBoxIcon-percent">%</span>
@@ -120,34 +90,34 @@
                                 value="6.25" required>
 
                         </div>
-
-
-
-                    </div>
-                    <input type="button" id="eval" value="Calculate Your Mortgage!!!!" onclick="getInputs()"
+                        <input type="button" id="eval" value="Calculate Your Mortgage!!!!" onclick="getInputs()"
                         class="evalButton">
+                    </div>
                 </div>
             </div>
             <div class="amortSchedule-container">
-                <div>
-                    <label for="summary">Loan Summary</label>
-                    <div class="table-head" id="amortHead"></div>
-                </div>
-                <div>
-                    <label for="breakdown">Payment Breakdown</label>
-                    <div class="table-head" id="amortInterest"></div>
+                <div class="amortSnippet">
+                    <div class="amortSnippet-1">
+                        <label for="summary">Loan Summary</label>
+                        <div class="table-head" id="amortHead"></div>
+                    </div>
+                    <div class="AmortSnippet-2">
+                        <label for="breakdown">Payment Breakdown</label>
+                        <div class="table-head" id="amortInterest"></div>
+                    </div>
                 </div>
 
-                <div>
-                    <label for="schedule">Amortization Schedule</label>
-                    <div class="table-container" id="amortTable">
-                    </div>
-                    <input type="button" id="export-btn" value="Export to Excel" onclick="convert_xlsx()">
-                </div>
                 <div>
                     <label for="graph">Graph</label>
                     <canvas id="amortChart"></canvas>
                 </div>
+                <div>
+                    <label for="schedule">Amortization Schedule <button id="export-btn" onclick="convert_xlsx()"> <img src="../Img/download-button-svgrepo-com (1).svg" style="height:25px; width:25px;"></button></label>
+                    <div class="table-container" id="amortTable">
+                    </div>
+                    
+                </div>
+
 
             </div>
 

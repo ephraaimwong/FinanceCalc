@@ -8,15 +8,20 @@ function validate(val) {
   if (val == null || val == "" || val <=0) {
     return false;
   }
+  if (!(/^[0-9]*\.?[0-9]+$/.test(val.toString().trim()))){
+    return false;
+  }
   return true;
 }
 
 function getInputs() {
+  var down = document.getElementsByName("down")[0].value;
   var principal =
-    parseFloat(document.getElementsByName("principal")[0].value) -
-    parseFloat(document.getElementsByName("down")[0].value);
+    document.getElementsByName("principal")[0].value -
+    down
   var interestRate =
-    parseFloat(document.getElementsByName("interest")[0].value) / 100; // Convert percentage to decimal
+    document.getElementsByName("interest")[0].value / 100; // Convert percentage to decimal
+  
   var numPayments = parseInt(document.getElementsByName("term")[0].value) * 12;
 
   //clear table when re-calculating
@@ -28,7 +33,11 @@ function getInputs() {
   breakdown.innerHTML = "";
   var validBal = validate(principal);
   var validInt = validate(interestRate);
-  if (validBal && validInt) {
+  var validDown = validate(down);
+  console.log("Interest:"+validInt);
+  console.log("Bal:"+validBal);
+  console.log("Down:"+validDown);
+  if (validBal && validInt && validDown) {
     head.innerHTML += overview(principal, interestRate, numPayments);
     table.innerHTML += evalAmort(principal, interestRate, numPayments);
     breakdown.innerHTML += breakDown(principal, interestRate, numPayments);
@@ -42,16 +51,20 @@ function overview(principal, interestRate, numPayments) {
     principal *
     ((interestMonthly * Math.pow(1 + interestMonthly, numPayments)) /
       (Math.pow(1 + interestMonthly, numPayments) - 1));
+  var startDate = new Date();
+  var endDate = new Date(startDate);
+  endDate.setMonth(endDate.getMonth() + numPayments);
+  var endDateAsString = endDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day:"numeric"});
 //toLocaleString()formats number with commas and $
   return (
-    "<table><tr><td>Loan Amount(Principal):</td><td>" +
+    "<table><tr><td>Loan Amount (Principal):</td><td>" +
     principal.toLocaleString(undefined, {style:"currency",currency:"usd"}) +
     "</td></tr><tr><td>Down Payment:</td><td>" +
     parseFloat(document.getElementsByName("down")[0].value).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr><tr><td>Loan Term(No. of Payments): </td><td>" +
+    "</td></tr><tr><td>Loan Term (No. of Payments): </td><td>" +
     numPayments +
     "</td></tr><tr><td>Pay Off Date:</td><td>" +
-    "tbd" +
+    endDateAsString +
     "</td></tr></table>"
   );
 }
@@ -90,14 +103,20 @@ function evalAmort(principal, interestRate, numPayments) {
 
   //tr = table row, th = table header, td = table data cell
   var resultTable =
-    "<table><tr><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr>";
+    "<table><tr><th></th><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr>";
   let loopInterest = 0;
   let loopPrincipal = 0;
-  for (let i = 1; i < numPayments + 1; i++) {
+  var startDate = new Date();
+  var currDate = new Date(startDate);
+  var currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
+  for (let i = 0; i < numPayments; i++) {
+    currDate.setMonth(currDate.getMonth()+1);
+    currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
     //start new row with each loop
     resultTable += "<tr>";
     //data cell input for month
-    resultTable += "<td>" + i + "</td>";
+    resultTable += "<td>" + (i+1) + "</td>";
+    resultTable += "<td>" + currDateAsString + "</td>";
     //data cell input for balance
     resultTable += "<td>" + balance.toLocaleString(undefined, {style:"currency",currency:"usd"}) + "</td>";
     //interest portion of monthly payment
@@ -183,6 +202,12 @@ function calcDown() {
   let downPayment = (homePrice * (percent / 100)).toFixed(2);
   document.getElementById("downPayment-amount").value = downPayment;
 }
+
+function calcDownPercent(){
+  document.getElementById("downPayment-percent").value = "";
+  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
+}
+
 function convert_xlsx() {
   // document.getElementById('export-btn').addEventListener('click', )
   var table = document.getElementById('amortTable');
@@ -199,9 +224,7 @@ function convert_xlsx() {
   saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
 }
 
-function calcDownPercent(){
-  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
-}
+
 
 //if statement allows jest to run
 if(typeof window !== 'undefined'){

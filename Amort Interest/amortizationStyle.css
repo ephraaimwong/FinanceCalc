@@ -47,36 +47,38 @@ nav a:hover{
     /* grid-auto-rows: auto; */
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 2%;
+    padding-bottom: 3%;
+    /* padding-top: 2%; */
     border: 2px solid black;
     
 }
-#headline{
-    /* grid-column: 1/4; start 1, end 4 */
-    /* grid-row: 1/3; start 1, end 3 */
-    justify-self: center;
-    border: 2px solid green;
-}
+
 h1{
-    font-size: 40px;
+    font-size: 45px;
+    text-align: center;
 }
 
 #app.m-calculator{
     display: flex;
     flex-direction: column;
+    padding-left: 10%;
+    border-radius: 1.5rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
     /* align-items: flex-end; */
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    background-color: #154c8a;
 }
 .calculator{
     grid-column: 1/2;
     grid-row: 3/5;
-    border: 3px solid salmon;
+    /* border: 3px solid salmon; */
 }
 label.formLabel-left{
     font-size: 32px;
 }
 .regBox{
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     padding-right: 15%;
 }
 .inputBoxIcon{
@@ -84,7 +86,7 @@ label.formLabel-left{
     position: relative;
     display: flex;
     align-items: center;
-    border-color: violet;
+    /* border-color: violet; */
     padding-right: 15%;
 }
 .inputBoxIcon-dollar{
@@ -145,40 +147,20 @@ label.formLabel-left{
     width: 85%; /*match the input box size*/
     display: flex;
     border: none;
-    background: #154c8a;
-    color: #f0ead6;
-    font-size: 1.8rem;
+    background: #a3f574;
+    color: #154c8a;
+    font-size: 1.2rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
+ 
 }
 .evalButton:hover{
-    background: #f0ead6;
-    color: #154c8a;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
-.infoBox{
-    border: 5px solid greenyellow;
-    display: flex;
-    width: 100%;
-}
 
-.infoBoxToggle{
-    font-size: 32px;
-    border: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    
-}
-.infoBoxToggle:hover{
-    background: #154c8a;
-    color: #f0ead6;
-}
-.amortSchedule-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    /* padding-left: 30%; */
-    align-items: center;
-    text-align: center;
-}
 #amortHead.table-head{
     display: flex;
     text-align: justify;
@@ -188,7 +170,8 @@ label.formLabel-left{
 
 canvas{
     display: block;
-    width: 100%;
+    /* width: 100%; */
+    max-width: 120vh;
 }
 
 #amortTable.table-container{
@@ -204,6 +187,7 @@ canvas{
     top: 0;
     z-index: 1;
     background-color: #154c8a;
+    color: aliceblue;
 
 }
 #amortTable th,td{
@@ -212,12 +196,67 @@ canvas{
 }
 
 #amortInterest.table-head{
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-content: flex-start;
 }
 
-.nextBox{
-    border: 5px solid brown;
-    /* font-size: 60px; */
+
+
+.amortSchedule-container{
+    /* grid-column: span 2; */
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: auto, auto;
+    width: 100%;
+    /* padding-left: 30%; */
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid red; */
+    gap: 1%;
+}
+.amortSnippet{
+    /* border: 5px solid black; */
+    display: flex;
+    justify-content: space-around;
+}
+
+#amortHead{
+    /* border: 1px solid brown; */
+    grid-column: 1;
+    grid-row: 1;
+}
+#amortInterest{
+    /* border: 1px dotted brown; */
+    grid-column: 2;
+    grid-row: 1;
+}
+#amortTable{
+    /* border: 1px solid blueviolet; */
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+#amortChart{
+    /* border: 1px solid pink; */
+    grid-column:1 / span 2;
+    grid-row: 2;
+}
+
+#export-btn{
+    height: 25px;
+    width: 25px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor:pointer;
+}
+#export-btn img{
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+#export-btn:hover img{
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
