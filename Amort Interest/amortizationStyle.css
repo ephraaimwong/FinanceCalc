@@ -194,16 +194,20 @@ label.formLabel-left[for="interest"] {
 }
 .amortSchedule-container{
     align-self: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr,1fr;
     width: 100%;
     text-align: center;
+    padding-top: 30%;
+    padding-bottom: 15%;
+    border: solid 5px black;
 }
 
 /* Summary and breakdown div  */
 
 .summary-breakdown {
     display: flex;
-    flex-direction: column; /* Align items vertically */
+    justify-content: space-around;
 }
 
 /* First table display - Breakdown information */
@@ -240,6 +244,7 @@ label.formLabel-left[for="interest"] {
     color: #fff; /* Set the text color for headers */
     text-align: center; /* Align text in the center (optional) */
 }
+
 #amortHead.table-head, #amortHead.table-head, #amortTable.table-head {
     display: flex;
     text-align: justify;
@@ -266,10 +271,12 @@ canvas{
 
 #amortTable.table-container{
     /* table scrolls */
-    max-height: 45vh;
+    max-height: 60vh;
+    height: 50vh;
     overflow-y: auto;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    position: relative;
 }
 #amortTable th{
     /* header does not scroll */
@@ -299,7 +306,24 @@ table {
     margin: 20px auto;
     text-align: center;
     border-radius: 10px; /* Rounded corners for inner table */
-    overflow: hidden; /* Prevent overflow of the borders */
+    /* overflow: hidden; Prevent overflow of the borders */
+}
+
+#export-btn{
+    height: 25px;
+    width: 25px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor:pointer;
+}
+#export-btn img{
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+#export-btn:hover img{
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 

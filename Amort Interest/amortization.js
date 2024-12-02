@@ -8,15 +8,20 @@ function validate(val) {
   if (val == null || val == "" || val <=0) {
     return false;
   }
+  if (!(/^[0-9]*\.?[0-9]+$/.test(val.toString().trim()))){
+    return false;
+  }
   return true;
 }
 
 function getInputs() {
+  var down = document.getElementsByName("down")[0].value;
   var principal =
-    parseFloat(document.getElementsByName("principal")[0].value) -
-    parseFloat(document.getElementsByName("down")[0].value);
+    document.getElementsByName("principal")[0].value -
+    down
   var interestRate =
-    parseFloat(document.getElementsByName("interest")[0].value) / 100; // Convert percentage to decimal
+    document.getElementsByName("interest")[0].value / 100; // Convert percentage to decimal
+  
   var numPayments = parseInt(document.getElementsByName("term")[0].value) * 12;
 
   //clear table when re-calculating
@@ -28,7 +33,11 @@ function getInputs() {
   breakdown.innerHTML = "";
   var validBal = validate(principal);
   var validInt = validate(interestRate);
-  if (validBal && validInt) {
+  var validDown = validate(down);
+  console.log("Interest:"+validInt);
+  console.log("Bal:"+validBal);
+  console.log("Down:"+validDown);
+  if (validBal && validInt && validDown) {
     head.innerHTML += overview(principal, interestRate, numPayments);
     table.innerHTML += evalAmort(principal, interestRate, numPayments);
     breakdown.innerHTML += breakDown(principal, interestRate, numPayments);
@@ -42,6 +51,11 @@ function overview(principal, interestRate, numPayments) {
     principal *
     ((interestMonthly * Math.pow(1 + interestMonthly, numPayments)) /
       (Math.pow(1 + interestMonthly, numPayments) - 1));
+
+  var startDate = new Date();
+  var endDate = new Date(startDate);
+  endDate.setMonth(endDate.getMonth() + numPayments);
+  var endDateAsString = endDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day:"numeric"});
 //toLocaleString()formats number with commas and $
 
 // The following return function generates the table for the loan summary to be displayed 
@@ -67,7 +81,7 @@ return (
       "</tr>" +
       "<tr>" +
         "<td>Pay Off Date:</td>" +
-        "<td>TBD</td>" +
+        "<td>"+ endDateAsString+"</td>" +
       "</tr>" +
     "</tbody>" +
   "</table>"
@@ -125,14 +139,20 @@ function evalAmort(principal, interestRate, numPayments) {
 
   //tr = table row, th = table header, td = table data cell
   var resultTable =
-    "<table><thead><tr><th colspan='4'>Schedule</th></tr><tr><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr></thead>";
+    "<table><thead><tr><th colspan='5'>Schedule</th></tr><tr><th>No.</th><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr></thead>";
   let loopInterest = 0;
   let loopPrincipal = 0;
-  for (let i = 1; i < numPayments + 1; i++) {
+  var startDate = new Date();
+  var currDate = new Date(startDate);
+  var currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
+  for (let i = 0; i < numPayments ; i++) {
+    currDate.setMonth(currDate.getMonth()+1);
+    currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
     //start new row with each loop
     resultTable += "<tr>";
     //data cell input for month
-    resultTable += "<td>" + i + "</td>";
+    resultTable += "<td>" + (i+1) + "</td>";
+    resultTable += "<td>" + currDateAsString + "</td>";
     //data cell input for balance
     resultTable += "<td>" + balance.toLocaleString(undefined, {style:"currency",currency:"usd"}) + "</td>";
     //interest portion of monthly payment
@@ -219,6 +239,24 @@ function calcDown() {
   document.getElementById("downPayment-amount").value = downPayment;
 }
 
+
+
+function convert_xlsx() {
+  // document.getElementById('export-btn').addEventListener('click', )
+  var table = document.getElementById('amortTable');
+  var workbook = XLSX.utils.table_to_book(table); //convert table to workbook (data format of spreadsheets)
+  var wbBString = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'}); //convert workbook to binarystring
+  function convert_BString2Blob(s){ //convert binary string to Blob
+    var buffer = new ArrayBuffer(s.length); // Blob requires an ArrayBuffer (low level block of mem)
+    var view = new Uint8Array(buffer); // Uint8Array is 8 bit unsigned integer array, manipulate buffer with this.
+    for (var i =0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //.charCodeAt() returns unicode val of char, & 0xFF is AND operation that ensures only lower 8 bits of unicode is used.
+    return buffer;
+  }
+
+  blob = new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}); //create Blob from ArrayBuffer
+  saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
+}
+
 //if statement allows jest to run
 if(typeof window !== 'undefined'){
   window.onload = () =>{
@@ -226,7 +264,6 @@ if(typeof window !== 'undefined'){
     console.log(monthArr, interestArr, principalArr);
   }
 }
-
 
 module.exports={
   validate,
