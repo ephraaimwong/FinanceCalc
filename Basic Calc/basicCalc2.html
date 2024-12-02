@@ -28,7 +28,7 @@
                 </div> -->
 
                 <div>    
-                    <input type="text" id="input" placeholder="Enter Expression" value=""/>
+                    <input type="text" id="input" placeholder="Enter Expression" value="" style = "background: aliceblue; text-align:center; color:black;">
                     <input type="button" value = "<-" onclick="rmAtCursor(document.getElementById('input'))" class="operator"> <!-- removes last append char-->
                     <!-- <input type="button" id="btn" value="="/> -->
                     <!-- <input type="text" id="display" readonly placeholder="Result"/> -->
@@ -41,7 +41,7 @@
                 
                 </div>
                 <div>
-                    <input type="text" id="display" readonly placeholder="Result"/>
+                    <input type="text" id="display" readonly placeholder="Result" style = "background: aliceblue; text-align:center; color:black;"/>
                     <input type="button" value = "CLR" onclick="display.value=''" class ="operator">
                 </div>
                 
@@ -80,7 +80,7 @@
                     <input type="button" value = "0" onclick="insertAtCursor(document.getElementById('input'),'-')">
                     <input type="button" value = "." onclick="insertAtCursor(document.getElementById('input'),'.')" class ="operator">
                     <input type="button" value = "^" onclick="insertAtCursor(document.getElementById('input'),'^')" class ="operator">
-                    <input type="button" id="btn" value="=" onclick="evaluateExpression()" class ="equal"/>
+                    <input type="button" id="btn" value="=" onclick="evaluateExpression()" class ="equal" />
                 </div>
             </form>
         </div>

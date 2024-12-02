@@ -79,7 +79,7 @@ form .display input{
 }
 form input.equal{
     width: 34%; /*makes "=" button longer*/
-    color: forestgreen;
+    color: black;
 }
 
 
@@ -92,4 +92,17 @@ form input.equal{
 
 form input.operator{
     color: black;
+}
+
+input[type="button"] {
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+input[type="button"]:hover{
+    transform: scale(1.1);
+    filter: brightness(5);
+
+}
+input[type="button"]:active{
+    transform: scale(0.90);
 }
