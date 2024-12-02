@@ -6,26 +6,28 @@ OU CS3203 Software Engineering
 
 The money bowl is a web-based tool to empower people of all backgrounds with the tools they need to take control over their financial matters.
 
-Installation Instructions: Hop onto [https://ephraaimwong.github.io/FinanceCalc/Landing Page/](https://ephraaimwong.github.io/FinanceCalc/Landing%20Page/) and get started today!
+Installation Instructions: Hop onto [The Money Bowl](https://ephraaimwong.github.io/FinanceCalc/Landing%20Page/) and get started today!
 
-Compiler: Visual Studio Code https://code.visualstudio.com/download
+Compiler: [Visual Studio Code](https://code.visualstudio.com/download)
 
-Optional (but useful git version control tool): GitHub Desktop https://desktop.github.com/download/
+Optional (but useful git version control tool): [GitHub Desktop](https://desktop.github.com/download/)
 
 Languages: HTML5, CSS3, JavaScript ES2023
 
-Unit Testing: Node, npm, Jest
+Unit Testing: Node, NPM, Jest
 
-Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js),
+Libraries: [Chart.js](https://cdn.jsdelivr.net/npm/chart.js), [FileSaver.js](https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js), [Sheet.js](https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js), DOM-Purify
 
 ### Contents
 
-1) [Landing Page](https://ephraaimwong.github.io/FinanceCalc/Landing Page/)
+1) [https://ephraaimwong.github.io/FinanceCalc/Landing Page/](https://ephraaimwong.github.io/FinanceCalc/Landing%20Page/)
 
    Contributor(s): Ephraim, Daniel, Nthati
 
    Home that acts as an introduction as well as main navigation page to between the several calculators. GUI logic allows clickable buttons that direct users to the labelled calculator of choice.
-2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)Contributor(s): Ephraim
+2) [Arithmetic Calculator](https://ephraaimwong.github.io/FinanceCalc/basicCalc2.html)
+
+   Contributor(s): Ephraim
 
    Calculator App employing Shunting Yard alogorithm that ensures PEMDAS in calculations. The calculator is represented by means of traditional labelled buttons with equation display and result display fields. User can also use their keyboards as I/O device to directly enter or copy their equations into the equation display field.
 3) [Simple Interest Calculator](https://ephraaimwong.github.io/FinanceCalc/interestCalcSimple.html)
