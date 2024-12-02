@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // const period_time = document.querySelector('input[name="period-time"]:checked').value;
 
         // // Ensure the inputs are valid numbers
-        if (isNaN(interest_rate) || isNaN(period) || isNaN(principal)) {
+        if (isNaN(interest_rate) || isNaN(period) || isNaN(principal) || interest_rate <= 0 || || period <= 0 || principal <= 0) {
             container.innerHTML = "Please enter valid numbers for all fields.";
             return;
         }
