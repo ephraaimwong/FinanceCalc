@@ -200,7 +200,7 @@ label.formLabel-left[for="interest"] {
     text-align: center;
     padding-top: 30%;
     padding-bottom: 15%;
-    border: solid 5px black;
+    /* border: solid 5px black; */
 }
 
 /* Summary and breakdown div  */
