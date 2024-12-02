@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="feedback.css">
+    <script src="feedback.js"></script>
+</head>
+<body>
+
+    <div class="nav-icons">
+        <button class="icon home" onclick="window.location.href='../Landing Page/index.html'">🏠</button>
+        <button class="icon contact" onclick="window.location.href='feedback.html'">✉️</button>
+    </div>
+
+    <div class="content">
+        <div class="main-container">
+            <div class="title-blurb">
+                <h1>Contact Us!</h1>
+                <p>Have a question or a suggestion? Tell us about it!</p>
+            </div>
+            <div class="form-container">
+                <form id="feedbackform">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" required></textarea>
+                    <button type="submit" onclick="sendFeedback()">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
