@@ -12,30 +12,27 @@ compound interest calculator for the user.-->
   <link rel="stylesheet" href="compoundInCalc4.css">
   <link rel="icon" type="image/ico" href="../Img/redmoneybowl-32.ico">
 </head>
-<body>
-    <nav>
-        <div class="logo"><a href="../Landing Page/index.html">The Money Bowl</a></div>
-        <div class="nav-items">
-            <a href="../Landing Page/index.html">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contact</a> 
-          </div> 
-    </nav>
-
-
-<div class="about-section">
-  <h2>About This Calculator</h2>
-  <p>
-  This financial calculator helps you perform two essential types of calculations: 
-  compound interest and loan payment schedules. Use the compound interest mode to estimate 
-  the growth of your investments or savings, and the loan mode to calculate your repayment 
-  schedule based on the loan amount, interest rate, and duration.
-    </p>
-  <p>
-  Switch between the two modes using the toggle above the form, and input the required 
-  values to get instant results.
-    </p>
-</div>   
+<body><!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="compoundInterestCalc2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
+  </head>
+  <body>
+    <!-- Top-Right Icons -->
+    <div class="top-icons">
+      <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
+        🏠
+      </button>
+      <button class="icon-button contact" onclick="window.open('https://forms.gle/DzHqDLFeh1LqGrbS6', '_blank')">
+        ✉️
+      </button>
+    </div> 
     
 <div class="container">
   <div class="calculator">
@@ -51,21 +48,36 @@ compound interest calculator for the user.-->
   <!--form for creating calculator inputs-->
   <form id="compoundInterestForm">
     <label for="principal">Principal Amount ($):</label>
-    <input type="number" id="principal" placeholder="Enter principal amount" required>
+    <div>
+      <input type="number" id="principal" placeholder="Enter principal amount" required>
+    </div>
     <label for="rate">Interest Rate (%):</label>
-    <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
+    <div>
+      <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
+    </div>
     <label for="time">Time:</label>
-    <input type="number" id="time" placeholder="Enter time" required>
+    <div>
+      <input type="number" id="time" placeholder="Enter time" required>
+    </div>
     <label for="time-period">Time Period:</label>
+    <div>
     <select id="time-period">
       <option value="years">Years</option>
       <option value="months">Months</option>
       <option value="days">Days</option>
     </select>
-    <label for="compounds" id="compoundsLabel">Number of Compounds Per Year:</label>
+
+  </div>
+  <label for="compounds" id="compoundsLabel">Compound Frequency:</label>
+  <div>    
     <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
-    <button type="button" id="calculate-button" onclick="calculate()">Calculate</button>
+  </div>
+
+    <div>
+      <button type="button" id="calculate-button" onclick="calculate()">Calculate</button>
+    </div>
   </form>
+
   </div>  
 
   <!--class for generating output table-->
@@ -74,6 +86,20 @@ compound interest calculator for the user.-->
     <div id="schedule"></div>
   </div>  
 </div>
+
+<div class="about-section">
+  <h2>About This Calculator</h2>
+  <p>
+  This financial calculator helps you perform two essential types of calculations: 
+  compound interest and loan payment schedules. Use the compound interest mode to estimate 
+  the growth of your investments or savings, and the loan mode to calculate your repayment 
+  schedule based on the loan amount, interest rate, and duration.
+    </p>
+  <p>
+  Switch between the two modes using the toggle above the form, and input the required 
+  values to get instant results.
+    </p>
+</div> 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script> <!--CDN for DOMPurify-->
 <script src="compoundInCalc4.js"></script> <!--js file for compound interest calculation-->
