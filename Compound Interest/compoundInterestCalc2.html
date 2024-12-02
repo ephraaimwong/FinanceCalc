@@ -48,10 +48,10 @@
             <label for="rate">Interest Rate (%):</label>
             <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
   
-            <label for="time">Time:</label>
+            <label for="time">Compounding Time:</label>
             <input type="number" id="time" placeholder="Enter time" required>
   
-            <label for="time-period">Time Period:</label>
+            <label for="time-period"></label>
             <select id="time-period"> required>
               <option value="" disabled selected>Choose Time Period</option>
               <option value="years">Years</option>
@@ -71,45 +71,4 @@
     <script src="compoundInterestCalc2.js"></script>
   </body>
   
-    <nav>
-        <div class="logo">
-          <img src="../Img/redmoneybowl" alt="project logo">
-          <a href="../Landing Page/index.html">The Money Bowl</a>
-        </div>
-        <div class="nav-items">
-            <a href="../Landing Page/index.html">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contact</a>  
-    </nav>
-  <div class="calculator-container">
-    <h1>Compound Interest Calculator</h1>
-    <form id="compoundInterestForm">
-      <label for="principal">Principal Amount ($):</label>
-      <input type="number" id="principal" placeholder="Enter principal amount" required>
 
-      <label for="rate">Interest Rate (%):</label>
-      <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" required>
-
-      <label for="time">Time:</label>
-      <input type="number" id="time" placeholder="Enter time" required>
-
-      <label for="time-period">Time Period:</label>
-      <select id="time-period">
-        <option value="years">Years</option>
-        <option value="months">Months</option>
-        <option value="days">Days</option>
-      </select>
-
-      <label for="compounds">Number of Compounds Per Year:</label>
-      <input type="number" id="compounds" placeholder="Enter compounding frequency" required>
-
-      <button type="button" onclick="calculateCompoundInterest()">Calculate Interest</button>
-    </form>
-
-    <div id="result"></div>
-    <div id="schedule"></div>
-  </div>
-
-     <script src="compoundInterestCalc2.js"></script>
-</body>
-</html>
