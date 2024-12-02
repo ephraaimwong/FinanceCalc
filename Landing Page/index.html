@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Money Bowl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class ="logo">
-            <img src="../Img/redmoneybowl" alt="project logo">
-            <a href="../Landing Page/index.html">The Money Bowl</a></div>
-        <div class="nav-items">
-            <a href="../Landing Page/index.html">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contact</a>
-        </div>
-    </nav>
-    <section class="hero">
-        <div class="hero-container">
-            <div class="column-left">
-                <h1>All Calculators and Finance Tools</h1>
-                <p>The one stop shop for all things money. From those void of knowledge to those cursed with too much, this website surely has a tool for you!</p>
-                    <a href="../Basic Calc/basicCalc2.html"><button>Basic Calculator</button></a>
-                    <a href="../Simple Interest/interestCalcSimple.html"><button>Simple Interest Calculator</button></a>
-                    <a href="../CompoundInterest/compoundInCalc4.html"><button>Compound Interest Calculator</button></a> <!--added link for compound interest calculator 7sep24, Jarrett-->
-                    <a href="../Amort Interest/amortizationSchedule.html"><button>Amortization Schedule</button></a>
-<!--                     <a href=""><button>etc</button></a> -->
-            </div>
-            <div class="column-right"> 
-                <img src="../Img/stackcash2" alt="random pic"class="hero-image">
-            </div>
-        </div>
-    </section>
+   <!-- Top-Right Icons -->
+   <div class="top-icons">
+    <button class="icon-button home" onclick="window.location.href='index.html'">
+      🏠
+    </button>
+    <button class="icon-button contact" onclick="window.location.href='#contact-section'">
+      ✉️
+    </button>
+  </div>
+  
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1 class="title">The Money Bowl</h1>
+    <p class="subtitle">
+        We’re here to provide you with simple tools and resources to help you understand and manage your finances with confidence. <br>
+        Explore, calculate, and take charge of your financial journey!
+    </p>
+  </div>
 
+ 
+
+  <!-- Options Section -->
+  <div class="option-main-box">
+
+    <!--Basic Calculator-->
+    <div class="option-box" id="basic-calc" onclick="window.location.href='../Basic Calc/basicCalc2.html'">
+      <p>Basic Calculator</p>
+      <img src="imgs/basic.jpeg" alt="Basic Calculator">
+    </div>
+
+    <!--Simple Interest Calculator-->
+    <div class="option-box" onclick="window.location.href='../Simple Interest/simpleInterestCalc.html'">
+      <p>Simple Interest Calculator</p>
+      <img src="imgs/simple.png" alt="Simple Interest Calculator">
+    </div>
+
+    <!--Compound Interest Calculator-->
+    <div class="option-box" onclick="window.location.href='../Compound Interest/compoundInterestCalc2.html'">
+      <p>Compound Interest Calculator</p>
+      <img src="imgs/compound.jpeg" alt="Compound Interest Calculator">
+    </div>
+
+    <!--Amortization Schedule-->
+    <div class="option-box" onclick="window.location.href='../Amort Interest/amortizationSchedule.html'">
+      <p>Amortization Schedule</p>
+      <img src="imgs/amortization.png" alt="Amortization Schedule">
+    </div>
+  </div>
+
+   <!-- Motivational Quote -->
+   <section class="quote-section">
+    <p class="quote">
+      "An investment in knowledge pays the best interest." – Benjamin Franklin
+    </p>
+  </section>
+
+  
+  <!-- Disclaimer -->
+  <footer class="disclaimer">
+    Disclaimer: The information provided on this website is for educational and informational purposes only and should not be considered as financial advice. 
+    We are not certified financial professionals, and the calculators and tools available on this site are designed to assist you in understanding basic financial concepts.
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

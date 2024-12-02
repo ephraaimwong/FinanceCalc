@@ -13,11 +13,14 @@
     <link rel="stylesheet" href="styleInterestCalcSimple.css">
 </head>
 <body>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <div class="top-icons">
+        <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
+          🏠
+        </button>
+        <button class="icon-button contact" onclick="window.open('https://forms.gle/DzHqDLFeh1LqGrbS6', '_blank')">
+          ✉️
+        </button>
+      </div>
 
         
 
@@ -118,7 +121,6 @@
             </div>
 
         <div class="bottom-container">
-          <p> Jelly</p>
               <div class="chart-container">
                 <canvas id="growthTrendChart"></canvas>
             </div>

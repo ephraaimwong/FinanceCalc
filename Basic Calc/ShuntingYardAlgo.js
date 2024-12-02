@@ -103,12 +103,6 @@ function isLeftAssoc(op){
     return true; //
 }
 
-function isUnaryMinus(eqn, index){
-    if(index === 0){return true;}
-    let prev = eqn[index-1];
-    return operators.includes(prev)||left_brackets.includes(prev);
-}
-
 function RPN(eqn){
     let queue = []; //for digits to be operated 
     let stack = []; //for operators
@@ -122,33 +116,6 @@ function RPN(eqn){
         if (t === ' ' || t === ',') {
             continue;//skip spaces and commas
         }
-        console.log("equation:",eqn)
-
-        if(t==='-'&& isUnaryMinus(eqn,i)){
-            type = TYPE_CONST;
-            object = '-';
-            //handle -(term in parent) 
-            if(eqn[i+1]==='('){
-                // object+='1';
-                queue.push(-1);
-                stack.push("*");
-                continue;
-            }
-            //handle -number
-            while (isNumber(eqn[i+1])) {
-                object+=eqn[i+1];
-                i++;
-            }
-            object = getVal(object);
-            queue.push(object);
-            continue;
-        }
-
-        if(i>0 && (isNumber(eqn[i-1])||eqn[i-1]===')')&& (t==='(' || isNumber(t))){
-            stack.push('*');
-        }
-
-
         // determine what token is
         if (isNumber(t)) {
             type = TYPE_CONST;
@@ -233,7 +200,6 @@ function RPN(eqn){
     while (stack.length > 0) {
         queue.push(stack.pop());
     }
-    console.log("queue:", queue);
     return queue;
 }
 
@@ -295,30 +261,6 @@ function eval(tree) {
         }
     }
 }
-function insertAtCursor(input, value){
-    let curr = input.value;
-    let cursorPos = input.selectionStart;
-    let beforeCursor = curr.substring(0, cursorPos);
-    let afterCursor = curr.substring(cursorPos);
-
-    input.value = beforeCursor + value + afterCursor;
-    input.setSelectionRange(cursorPos + value.length, cursorPos + value.length);
-    input.focus(); //input field stays active until clicked off, cursor does not reset
-}
-
-function rmAtCursor(input){
-    let cursorPos = input.selectionStart;
-    if(cursorPos!= 0){
-        let curr = input.value;
-        let beforeCursor = curr.substring(0, cursorPos-1);
-        let afterCursor = curr.substring(cursorPos);
-
-        input.value = beforeCursor + afterCursor;
-        input.setSelectionRange(cursorPos-1, cursorPos-1);
-    }
-    input.focus(); //input field stays active until clicked off, cursor does not reset
-}
-
 function toggleSign() {
     let input = document.getElementById('input');
     let currentValue = input.value;
@@ -352,4 +294,20 @@ function evaluateExpression(){
     }
     document.querySelector('#display').value = val;   
 }
+
+// document.querySelector('#btn').addEventListener('click', (e) => {
+//     //e.preventDefault(); 
+//     let eqn = document.querySelector('#input').value;
+//     let rpn = RPN(eqn);
+//     var val = 'invalid input';
+
+//     if(rpn){
+//     let tree = parse(rpn);
+//     val = eval(tree);
+//     console.log(rpn);
+//     console.log(tree);
+//     console.log(val);
+//     }
+//     document.querySelector('#display').value = val;   
+// });
 

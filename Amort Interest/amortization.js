@@ -51,22 +51,42 @@ function overview(principal, interestRate, numPayments) {
     principal *
     ((interestMonthly * Math.pow(1 + interestMonthly, numPayments)) /
       (Math.pow(1 + interestMonthly, numPayments) - 1));
+
   var startDate = new Date();
   var endDate = new Date(startDate);
   endDate.setMonth(endDate.getMonth() + numPayments);
   var endDateAsString = endDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day:"numeric"});
 //toLocaleString()formats number with commas and $
-  return (
-    "<table><tr><td>Loan Amount (Principal):</td><td>" +
-    principal.toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr><tr><td>Down Payment:</td><td>" +
-    parseFloat(document.getElementsByName("down")[0].value).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr><tr><td>Loan Term (No. of Payments): </td><td>" +
-    numPayments +
-    "</td></tr><tr><td>Pay Off Date:</td><td>" +
-    endDateAsString +
-    "</td></tr></table>"
-  );
+
+// The following return function generates the table for the loan summary to be displayed 
+return (
+  "<table>" +
+    "<thead>" +
+      "<tr>" +
+        "<th colspan=2>Loan Summary</th>" +
+      "</tr>" +
+    "</thead>" +
+    "<tbody>" + 
+      "<tr>" +
+        "<td>Loan Amount (Principal):</td>" +
+        "<td>" + principal.toLocaleString(undefined, { style: "currency", currency: "USD" }) + "</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>Down Payment:</td>" +
+        "<td>" + parseFloat(document.getElementsByName("down")[0].value).toLocaleString(undefined, { style: "currency", currency: "USD" }) + "</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>Loan Term (No. of Payments):</td>" +
+        "<td>" + numPayments + "</td>" +
+      "</tr>" +
+      "<tr>" +
+        "<td>Pay Off Date:</td>" +
+        "<td>"+ endDateAsString+"</td>" +
+      "</tr>" +
+    "</tbody>" +
+  "</table>"
+);
+
 }
 
 function breakDown(principal, interestRate, numPayments) {
@@ -75,14 +95,30 @@ function breakDown(principal, interestRate, numPayments) {
     principal *
     ((interestMonthly * Math.pow(1 + interestMonthly, numPayments)) /
       (Math.pow(1 + interestMonthly, numPayments) - 1));
-  return (
-    "<table><tr><td>Monthly Payment:</td><td>" +
-    monthlyPayment.toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr><tr><td>Total Interest Paid:</td><td>" +
-    (monthlyPayment * numPayments - principal).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr><tr><td>Total Paid:</td><td>" + (monthlyPayment * numPayments).toLocaleString(undefined, {style:"currency",currency:"usd"}) +
-    "</td></tr></table>"
-  );
+      return (
+        "<table>" +
+          "<thead>" +
+            "<tr>" +
+              "<th colspan=2>Payment Breakdown</th>" +
+            "</tr>" +
+          "</thead>" +
+          "<tbody>" +
+            "<tr>" +
+              "<td>Monthly Payment:</td>" +
+              "<td>" + monthlyPayment.toLocaleString(undefined, { style: "currency", currency: "USD" }) + "</td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td>Total Interest Paid:</td>" +
+              "<td>" + (monthlyPayment * numPayments - principal).toLocaleString(undefined, { style: "currency", currency: "USD" }) + "</td>" +
+            "</tr>" +
+            "<tr>" +
+              "<td>Total Paid:</td>" +
+              "<td>" + (monthlyPayment * numPayments).toLocaleString(undefined, { style: "currency", currency: "USD" }) + "</td>" +
+            "</tr>" +
+          "</tbody>" +
+        "</table>"
+      );
+      
 }
 
 function evalAmort(principal, interestRate, numPayments) {
@@ -103,13 +139,13 @@ function evalAmort(principal, interestRate, numPayments) {
 
   //tr = table row, th = table header, td = table data cell
   var resultTable =
-    "<table><tr><th></th><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr>";
+    "<table><thead><tr><th colspan='5'>Schedule</th></tr><tr><th>No.</th><th>Month</th><th>Balance</th><th>Towards Interest</th><th>Towards Principal</th></tr></thead>";
   let loopInterest = 0;
   let loopPrincipal = 0;
   var startDate = new Date();
   var currDate = new Date(startDate);
   var currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
-  for (let i = 0; i < numPayments; i++) {
+  for (let i = 0; i < numPayments ; i++) {
     currDate.setMonth(currDate.getMonth()+1);
     currDateAsString = currDate.toLocaleDateString(undefined, {year: "numeric", month:"long"});
     //start new row with each loop
@@ -203,10 +239,7 @@ function calcDown() {
   document.getElementById("downPayment-amount").value = downPayment;
 }
 
-function calcDownPercent(){
-  document.getElementById("downPayment-percent").value = "";
-  document.getElementById("downPayment-percent").value = (document.getElementById("downPayment-amount").value / document.getElementsByName("principal")[0].value * 100).toFixed(2);
-}
+
 
 function convert_xlsx() {
   // document.getElementById('export-btn').addEventListener('click', )
@@ -223,8 +256,6 @@ function convert_xlsx() {
   blob = new Blob([convert_BString2Blob(wbBString)], {type: 'application/octet-stream'}); //create Blob from ArrayBuffer
   saveAs(blob, 'amortizationSchedule.xlsx'); // use FileSaver.js to save Blob as file
 }
-
-
 
 //if statement allows jest to run
 if(typeof window !== 'undefined'){

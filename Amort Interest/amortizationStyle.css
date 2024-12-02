@@ -1,185 +1,282 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-sizing: border-box;
+    background-color: #f8f6f0;
+    font-family: 'Crimson Text', serif;
+    background-color: transparent;
+    
 }
 
-nav {
-    height: 80px;
-    background: #154c8a;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem calc((100vw - 1300px)/2);
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f6f0;
 }
-.logo{
-    color: #f0ead6;
-    font-size: 2.5rem;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0 2rem;
+  /* Top-Right Icons */
+  .top-icons {
+    position: fixed; /* Fixed position at the top */
+    top: 15px; /* Align to the top of the viewport */
+    right: 15px; /* Extend to the right edge */
+    display: flex; /* Flexbox for alignment */
+    justify-content: flex-end; /* Align buttons to the right */
+    align-items: center; /* Vertically center buttons */
+    gap: 10px; /* Space between buttons */
+    background-color: transparent;
+    z-index: 1000; /* Keep above other elements */
+}
+
+.icon-button {
+    width: 70px; 
+    height: 70px; /* Reduced height */
+    font-size: 32px; /* Smaller font size */
+    border: 2px solid #00509e; /* Blue outline */
+    background-color: white; /* White background */
+    color: #00509e; /* Blue icon color */
+    border-radius: 50%; /* Circular buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-button:hover {
+    background-color: #00509e; /* Blue background on hover */
+    color: white; /* White icon color */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+.container {
+    gap: 2.5rem;
+    padding: 2% 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-.logo img{
-    height:80px;
-    margin-right: 5px;
+    height: 100%;
+    width: 100%;
+    margin-top: 100px;
 }
 
-nav a {
-    text-decoration: none;
-    color: #F8F6F0;
-    padding: 0 1.5rem;
-}
-
-nav a:hover{
-    color: purple;
-}
-
-.container{
-    display: grid;
-    grid-template-columns: 1fr 3fr ;
-    /* grid-template-rows:  auto auto; */
-    gap: 16px;
-    /* grid-auto-rows: auto; */
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 3%;
-    /* padding-top: 2%; */
-    border: 2px solid black;
-    
-}
-
-h1{
-    font-size: 45px;
-    text-align: center;
-}
-
-#app.m-calculator{
+/* Calculator box */
+.calculatorBox {
     display: flex;
     flex-direction: column;
-    padding-left: 10%;
-    border-radius: 1.5rem;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    /* align-items: flex-end; */
-    /* border: 2px solid red; */
-    background-color: #154c8a;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: auto;
+    width: 50%;
+    border: 0.15rem solid #00509e;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: #fff;
 }
-.calculator{
-    grid-column: 1/2;
-    grid-row: 3/5;
-    /* border: 3px solid salmon; */
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background-color: transparent;
 }
-label.formLabel-left{
-    font-size: 32px;
+
+label.formLabel-left {
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
-.regBox{
-    /* border: 2px solid purple; */
-    padding-right: 15%;
-}
-.inputBoxIcon{
-    /* fix $, % icon in input bar */
+
+/* Input field with icons */
+.inputBoxIcon {
     position: relative;
     display: flex;
     align-items: center;
-    /* border-color: violet; */
-    padding-right: 15%;
-}
-.inputBoxIcon-dollar{
-    /* fix $ icon in input bar */
-    position: absolute;
-    left: 5%;
-    font-size: 16px;
-    z-index: 1;/* Ensure it's layered above input */
-}
-.inputBoxIcon-percent{
-    position: absolute;
-    right: 20%;
-    font-size: 16px;
-    z-index: 1;/* Ensure it's layered above input */
-}
-.formInput{
-    /* width: 50%; */
-    padding: 12px 30px;
-    margin: 8px 0px;
-    box-sizing: border-box;
-    border-radius: 15px;
-    background-color: #f0ead6;
-    font: 16px Arial, sans-serif;
-}
-.formInput::placeholder{
-    font-size: 16px;
-}
-#regBox.formInput{
-    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
 }
 
-.downPayment-amount{
-    flex: 3; /*75%*/
+.inputBoxIcon-dollar, .inputBoxIcon-percent {
+    position: absolute;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #333;
+    pointer-events: none; /* Prevent interaction */
 }
-.downPayment-percent{
-    flex: 2; /*25%*/
-}
-#downPayment-amount.formInput{
-    /* padding-left: 30px; */
-    width: 100%;
-    border-top-left-radius: 15px; /* Left side rounded */
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 0; /* Inner border straight */
-    border-bottom-right-radius: 0; /* Inner border straight */
-    border-right: none;
-}
-#downPayment-percent.formInput {
-    /* padding-right: 30px; */
-    width: 100%;
-    border-top-right-radius: 15px; /* Right side rounded */
-    border-bottom-right-radius: 15px;
-    border-top-left-radius: 0; /* Inner border straight */
-    border-bottom-left-radius: 0; /* Inner border straight */
 
+.inputBoxIcon-dollar {
+    left: 0.75rem;
 }
-.evalButton{
-    border-radius: 50px;
-    width: 85%; /*match the input box size*/
-    display: flex;
+
+.inputBoxIcon-percent {
+    right: 0.75rem;
+}
+
+.formInput {
+    background-color: transparent;
+    flex: 1;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem 2rem; /* Add padding for the icons */
+    border: 1px solid #ccc;
+    border-radius: 0.7rem;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.formInput::placeholder {
+    font-size: 1rem;
+    color: #999;
+}
+
+/* Down payment inputs */
+.downPayment-amount,
+.downPayment-percent {
+    background-color: transparent;
+    border:none;
+    flex: 1;
+}
+
+#downPayment-amount {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    padding-left: 2.5rem; /* Ensure enough space for the dollar icon */
+}
+
+#downPayment-percent {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding-right: 2.5rem; /* Ensure enough space for the percent icon */
+}
+
+
+label.formLabel-left[for="interest"] {
+    margin-top: 1rem;
+}
+
+
+  
+/* Button to get results */
+.evalButton {
+    margin-top: 1.5rem;
     border: none;
-    background: #a3f574;
-    color: #154c8a;
-    font-size: 1.2rem;
-    padding-top: 5%;
-    padding-bottom: 5%;
- 
-}
-.evalButton:hover{
-    transition: transform 0.3s ease, filter 0.3s ease;
-    transform: scale(1.1);
-    filter: brightness(1.2);
+    width: 70%;
+    height: 3rem;
+    align-self: center;
+    border-radius: 1rem;
+    background-color: #00509e;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.evalButton:hover {
+    background-color: #154c8a;
+    transform: scale(1.05);
+}
 
-#amortHead.table-head{
+.infoBox{
+    border: 5px solid greenyellow;
+    display: flex;
+    width: 100%;
+}
+
+.infoBoxToggle{
+    font-size: 32px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.infoBoxToggle:hover{
+    background: #154c8a;
+    color: #f0ead6;
+}
+.amortSchedule-container{
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr,1fr;
+    width: 100%;
+    text-align: center;
+    padding-top: 30%;
+    padding-bottom: 15%;
+    /* border: solid 5px black; */
+}
+
+/* Summary and breakdown div  */
+
+.summary-breakdown {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* First table display - Breakdown information */
+#amortHead, #amortInterest, #amortTable{
+    width: 100%; /* Make the container take full width */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    margin: 0 auto;
+    padding: 0 1rem;
+    border: none; /* Outer border of the table container (blue) */
+}
+
+#amortHead table, #amortInterest table, #amortTable table {
+    width: 100%; /* Ensure table fills the container */
+    border-collapse: separate; /* Use separate borders for rounded corners */
+    border-spacing: 0; /* Remove spacing between cells */
+    background-color: #f8f6f0; /* Set the table background color */
+    border: 2px solid #00509e;
+}
+
+#amortHead table th, 
+#amortHead table td,
+#amortTable table th, 
+#amortTable table td,
+#amortInterest table th, 
+#amortInterest table td {
+    margin: 0;
+    border-radius: 0.04rem;
+    border: 0.04rem solid #00509e; /* Apply red borders to each cell (row/column borders) */
+    padding: 1rem; /* Add padding for better cell spacing */
+}
+
+#amortHead table th , #amortInterest table th, #amortTable table th{
+    background-color: #154CAA; /* Set the header background color */
+    color: #fff; /* Set the text color for headers */
+    text-align: center; /* Align text in the center (optional) */
+}
+
+#amortHead.table-head, #amortHead.table-head, #amortTable.table-head {
     display: flex;
     text-align: justify;
     line-height: .9;/*adjust the spacing between lines caused by <br>*/
     justify-content: center;
 }
+#amortTable thead th {
+    padding: 0.5rem; /* Reduce padding inside the table header cells */
+    font-size: 0.9rem; /* Optionally reduce font size */
+    line-height: 1.5rem; /* Adjust line height */
+    height: 2rem; /* Set a fixed height for the table head */
+}
+
 
 canvas{
+    margin-top: 1rem;
+    border: 0.15rem solid #00509e;
+    border-radius: 1rem;
     display: block;
-    /* width: 100%; */
-    max-width: 120vh;
+    width: 100%;
+    margin-left: 1rem;
+    border-collapse: collapse;
 }
 
 #amortTable.table-container{
     /* table scrolls */
-    max-height: 45vh;
+    max-height: 60vh;
+    height: 50vh;
     overflow-y: auto;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    position: relative;
 }
 #amortTable th{
     /* header does not scroll */
@@ -187,8 +284,10 @@ canvas{
     top: 0;
     z-index: 1;
     background-color: #154c8a;
-    color: aliceblue;
+}
 
+#amortTable table {
+    max-height: 7rem;
 }
 #amortTable th,td{
     padding: 10px;
@@ -196,52 +295,18 @@ canvas{
 }
 
 #amortInterest.table-head{
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-content: flex-start;
 }
 
-
-
-.amortSchedule-container{
-    /* grid-column: span 2; */
-    display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: auto, auto;
-    width: 100%;
-    /* padding-left: 30%; */
-    align-items: center;
+table {
+    width: 50%; /* Adjust width */
+    border-collapse: collapse; /* Collapsed borders for inner table */
+    margin: 20px auto;
     text-align: center;
-    /* border: 1px solid red; */
-    gap: 1%;
-}
-.amortSnippet{
-    /* border: 5px solid black; */
-    display: flex;
-    justify-content: space-around;
-}
-
-#amortHead{
-    /* border: 1px solid brown; */
-    grid-column: 1;
-    grid-row: 1;
-}
-#amortInterest{
-    /* border: 1px dotted brown; */
-    grid-column: 2;
-    grid-row: 1;
-}
-#amortTable{
-    /* border: 1px solid blueviolet; */
-    grid-column: 1 / span 2;
-    grid-row: 3;
-    padding-bottom: 20px;
-    overflow: hidden;
-}
-#amortChart{
-    /* border: 1px solid pink; */
-    grid-column:1 / span 2;
-    grid-row: 2;
+    border-radius: 10px; /* Rounded corners for inner table */
+    /* overflow: hidden; Prevent overflow of the borders */
 }
 
 #export-btn{
@@ -260,3 +325,5 @@ canvas{
     transform: scale(1.1);
     filter: brightness(1.2);
 }
+
+
