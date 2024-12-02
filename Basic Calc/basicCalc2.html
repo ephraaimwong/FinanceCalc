@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styleBasicCalc2.css">
     <link rel="icon" type="image/ico" href="../Img/redmoneybowl">
 </head>
+
 <body>
   <div class="top-icons">
     <button class="icon-button home" onclick="window.location.href='../Landing Page/index.html'">
@@ -16,20 +17,16 @@
       ✉️
     </button>
   </div>
-
-    
    
     <div class="container">
-      
         <div class="calculator">
             <form>
-              <h2> Basic Calculator</h2>
                 <!-- <div class="display">
                     <input type="text" id = "display">
                 </div> -->
 
                 <div>    
-                    <input type="text" pattern="\d*" id="input" placeholder="Enter Expression" value="" style = "background: aliceblue; text-align:center; color:black;"  oninput="this.value = this.value.replace(/[^0-9]/g, '')"> <!-- Making sure that it only takes digits -->
+                    <input type="text" id="input" placeholder="Enter Expression" value="" style="background: aliceblue; text-align:center; color: black;"/>
                     <input type="button" value = "<-" onclick="rmAtCursor(document.getElementById('input'))" class="operator"> <!-- removes last append char-->
                     <!-- <input type="button" id="btn" value="="/> -->
                     <!-- <input type="text" id="display" readonly placeholder="Result"/> -->
@@ -42,15 +39,22 @@
                 
                 </div>
                 <div>
-                    <input type="text" id="display" readonly placeholder="Result" style = "background: aliceblue; text-align:center; color:black;"/>
+                    <input type="text" id="display" readonly placeholder="Result" style="background: aliceblue; text-align:center; color: black;"/>
                     <input type="button" value = "CLR" onclick="display.value=''" class ="operator">
+                </div>
+                
+                <div>
+                    
+                    
+
+
                 </div>
                 <div>
                     <input type="button" value = "7" onclick="insertAtCursor(document.getElementById('input'),'7')"/> <!--+= adds another digit of 7 to the display  -->
                     <input type="button" value = "8" onclick="insertAtCursor(document.getElementById('input'),'8')">
                     <input type="button" value = "9" onclick="insertAtCursor(document.getElementById('input'),'9')">
-                    <input type="button" value="(" onclick="insertAtCursor(document.getElementById('input'), '(')" class="operator">
-<input type="button" value=")" onclick="insertAtCursor(document.getElementById('input'), ')')" class="operator">
+                    <input type="button" value = "(" onclick="insertAtCursor(document.getElementById('input'),'(')" class ="operator">
+                    <input type="button" value = ")" onclick="insertAtCursor(document.getElementById('input'),')')" class ="operator">
 
                 </div>
                 <div>
@@ -74,7 +78,7 @@
                     <input type="button" value = "0" onclick="insertAtCursor(document.getElementById('input'),'-')">
                     <input type="button" value = "." onclick="insertAtCursor(document.getElementById('input'),'.')" class ="operator">
                     <input type="button" value = "^" onclick="insertAtCursor(document.getElementById('input'),'^')" class ="operator">
-                    <input type="button" id="btn" value="=" onclick="evaluateExpression()" class ="equal" />
+                    <input type="button" id="btn" value="=" onclick="evaluateExpression()" class ="equal"/>
                 </div>
             </form>
         </div>
